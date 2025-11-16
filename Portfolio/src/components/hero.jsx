@@ -90,35 +90,62 @@ const Hero = () => {
         </button>
       </header>
 
-      {/* Hero PNG Image - Centered Behind Content */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-5 w-full h-full flex items-center justify-center">
+      {/* Hero PNG Image - Positioned at top/center with Fade Effect */}
+      <div className="absolute left-1/2 top-0 -translate-x-1/2 z-5 w-full h-full flex items-start justify-center pt-16">
         <img 
           src={heroImage}
           alt="Hero" 
-          className="max-w-full max-h-full object-contain opacity-90"
+          className="w-auto h-2/3 object-contain"
+          style={{
+            maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%)'
+          }}
         />
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-4">
-        <h1 className="text-white text-center mb-4">
-          <div className="text-4xl md:text-5xl lg:text-6xl mb-1" style={{ fontFamily: 'Playfair Display, serif' }}>
+      {/* Main Content - Positioned Lower */}
+      <div className="relative z-10 flex flex-col items-center justify-end h-full px-4 w-full pb-32">
+        <h1 className="text-white text-center mb-4 w-full max-w-7xl">
+          <div className="text-4xl md:text-5xl lg:text-6xl mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
             I'm Dominicus,
           </div>
-          <div className="relative h-20 md:h-24 lg:h-28 overflow-hidden">
-            {titles.map((title, index) => (
+          
+          {/* 3D Cube Text Rotation */}
+          <div className="relative h-20 md:h-24 lg:h-32 flex items-center justify-center w-full" style={{ perspective: '1000px' }}>
+            <div
+              className="relative w-full max-w-4xl h-full"
+              style={{
+                transformStyle: 'preserve-3d',
+                transform: `rotateX(${currentIndex * 180}deg)`,
+                transition: 'transform 1s ease-in-out'
+              }}
+            >
+              {/* Front Face */}
               <div
-                key={title}
-                className="absolute inset-0 flex items-center justify-center text-5xl md:text-6xl lg:text-7xl tracking-wider transition-transform duration-1000 ease-in-out"
+                className="absolute inset-0 flex items-center justify-center"
                 style={{
-                  fontFamily: 'Playfair Display, serif',
-                  color: '#a0a0a0',
-                  transform: `translateY(${(index - currentIndex) * 100}%)`
+                  backfaceVisibility: 'hidden',
+                  transform: 'translateZ(40px)'
                 }}
               >
-                {title}
+                <div className="text-4xl md:text-5xl lg:text-7xl tracking-wider px-4" style={{ fontFamily: 'Playfair Display, serif', color: '#808080' }}>
+                  {titles[0]}
+                </div>
               </div>
-            ))}
+
+              {/* Back Face */}
+              <div
+                className="absolute inset-0 flex items-center justify-center"
+                style={{
+                  backfaceVisibility: 'hidden',
+                  transform: 'rotateX(180deg) translateZ(40px)'
+                }}
+              >
+                <div className="text-4xl md:text-5xl lg:text-7xl tracking-wider px-4" style={{ fontFamily: 'Playfair Display, serif', color: '#808080' }}>
+                  {titles[1]}
+                </div>
+              </div>
+            </div>
           </div>
         </h1>
 
