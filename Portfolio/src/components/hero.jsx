@@ -1,6 +1,5 @@
-
 import React, { useEffect, useRef } from 'react';
-import profileImg from '../assets/hero.png';
+import heroImage from '../assets/hero.png';
 
 const Hero = () => {
   const canvasRef = useRef(null);
@@ -70,7 +69,7 @@ const Hero = () => {
       {/* Header */}
       <header className="absolute top-0 left-0 right-0 z-20 flex justify-between items-center px-8 md:px-16 py-8">
         {/* Logo */}
-        <div className="text-white text-3xl md:text-4xl font-serif italic">
+        <div className="text-white text-3xl md:text-4xl italic" style={{ fontFamily: 'Brush Script MT, cursive' }}>
           Dominicus
         </div>
 
@@ -82,36 +81,32 @@ const Hero = () => {
         </button>
       </header>
 
-      {/* Profile Image */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-1/3 md:w-1/4 h-3/4">
+      {/* Hero PNG Image - Centered Behind Content */}
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-5 w-full h-full flex items-center justify-center">
         <img 
-          src={profileImg}
-          alt="Dominicus Profile" 
-          className="w-full h-full object-cover object-center opacity-80"
-          style={{
-            maskImage: 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 70%, rgba(0,0,0,0) 100%)',
-            WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 70%, rgba(0,0,0,0) 100%)'
-          }}
+          src={heroImage}
+          alt="Hero" 
+          className="max-w-full max-h-full object-contain opacity-90"
         />
       </div>
 
       {/* Main Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full px-4">
         <h1 className="text-white text-center mb-4">
-          <div className="text-5xl md:text-7xl lg:text-8xl font-serif mb-2">
+          <div className="text-4xl md:text-5xl lg:text-6xl mb-1" style={{ fontFamily: 'Playfair Display, serif' }}>
             I'm Dominicus,
           </div>
-          <div className="text-6xl md:text-8xl lg:text-9xl font-serif tracking-wide text-gray-400">
+          <div className="text-5xl md:text-6xl lg:text-7xl tracking-wider" style={{ fontFamily: 'Playfair Display, serif', color: '#a0a0a0' }}>
             WEB DESIGNER.
           </div>
         </h1>
 
         {/* CTA Buttons */}
-        <div className="flex flex-wrap gap-4 mt-12 justify-center">
-          <button className="px-8 py-4 bg-white text-black text-lg rounded-full font-medium hover:bg-gray-200 transition-all hover:scale-105">
+        <div className="flex flex-wrap gap-4 mt-8 justify-center">
+          <button className="px-7 py-3 bg-white text-black text-base rounded-full font-medium hover:bg-gray-200 transition-all hover:scale-105">
             Get in touch
           </button>
-          <button className="px-8 py-4 bg-transparent text-white text-lg rounded-full font-medium border-2 border-transparent hover:border-white transition-all hover:scale-105">
+          <button className="px-7 py-3 bg-transparent text-white text-base rounded-full font-medium border-2 border-transparent hover:border-white transition-all hover:scale-105">
             See my projects
           </button>
         </div>
