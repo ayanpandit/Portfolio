@@ -3,6 +3,15 @@ import heroImage from '../assets/hero.png';
 
 const Hero = () => {
   const canvasRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = React.useState(0);
+  const titles = ['WEB DESIGNER.', 'WEB DEVELOPER.'];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % titles.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -96,8 +105,20 @@ const Hero = () => {
           <div className="text-4xl md:text-5xl lg:text-6xl mb-1" style={{ fontFamily: 'Playfair Display, serif' }}>
             I'm Dominicus,
           </div>
-          <div className="text-5xl md:text-6xl lg:text-7xl tracking-wider" style={{ fontFamily: 'Playfair Display, serif', color: '#a0a0a0' }}>
-            WEB DESIGNER.
+          <div className="relative h-20 md:h-24 lg:h-28 overflow-hidden">
+            {titles.map((title, index) => (
+              <div
+                key={title}
+                className="absolute inset-0 flex items-center justify-center text-5xl md:text-6xl lg:text-7xl tracking-wider transition-transform duration-1000 ease-in-out"
+                style={{
+                  fontFamily: 'Playfair Display, serif',
+                  color: '#a0a0a0',
+                  transform: `translateY(${(index - currentIndex) * 100}%)`
+                }}
+              >
+                {title}
+              </div>
+            ))}
           </div>
         </h1>
 
