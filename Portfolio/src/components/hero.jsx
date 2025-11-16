@@ -159,18 +159,6 @@ const Hero = () => {
           </button>
         </div>
       </div>
-
-      {/* Made in Framer Badge */}
-      <div className="absolute bottom-6 right-6 z-20">
-        <div className="bg-white rounded-full px-4 py-2 flex items-center gap-2 shadow-lg hover:scale-105 transition-transform cursor-pointer">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-black">
-            <path d="M0 0H16V5.33333H8L0 0Z" fill="currentColor"/>
-            <path d="M8 5.33333H16V10.6667H8V5.33333Z" fill="currentColor"/>
-            <path d="M8 10.6667L16 16H8V10.6667Z" fill="currentColor"/>
-          </svg>
-          <span className="text-sm font-medium text-black">Made in Framer</span>
-        </div>
-      </div>
     </div>
   );
 };
