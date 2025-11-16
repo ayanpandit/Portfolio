@@ -128,7 +128,7 @@ const Hero = () => {
                   transform: 'translateZ(40px)'
                 }}
               >
-                <div className="text-4xl md:text-5xl lg:text-7xl tracking-wider px-4" style={{ fontFamily: 'Playfair Display, serif', color: '#808080' }}>
+                <div className="text-4xl md:text-5xl lg:text-7xl tracking-wider px-4" style={{ fontFamily: 'Anton, Oswald, Chela One, Norican, Pompiere, Varela Round, sans-serif', color: '#808080' }}>
                   {titles[0]}
                 </div>
               </div>
@@ -141,7 +141,7 @@ const Hero = () => {
                   transform: 'rotateX(180deg) translateZ(40px)'
                 }}
               >
-                <div className="text-4xl md:text-5xl lg:text-7xl tracking-wider px-4" style={{ fontFamily: 'Playfair Display, serif', color: '#808080' }}>
+                <div className="text-4xl md:text-5xl lg:text-7xl tracking-wider px-4" style={{ fontFamily: 'Anton, Oswald, Chela One, Norican, Pompiere, Varela Round, sans-serif', color: '#808080' }}>
                   {titles[1]}
                 </div>
               </div>
