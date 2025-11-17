@@ -1,34 +1,54 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import heroImage from '../assets/hero.png';
 import RotatingText from './hero_text_animation';
 
 const Hero = () => {
-  const [currentIndex, setCurrentIndex] = React.useState(0);
-  const titles = ['WEB DESIGNER.', 'WEB DEVELOPER.'];
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % titles.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <div className="relative w-full h-screen bg-black overflow-hidden">
       {/* Header */}
-      <header className="absolute top-0 left-0 right-0 z-20 flex justify-between items-center px-8 md:px-16 py-8">
+      <header className="absolute top-0 left-0 right-0 z-50 flex justify-between items-center px-8 md:px-16 py-8">
         {/* Logo */}
         <div className="text-white text-3xl md:text-4xl italic" style={{ fontFamily: 'Brush Script MT, cursive' }}>
           Dominicus
         </div>
 
-        {/* Hamburger Menu */}
-        <button className="flex flex-col gap-2 group">
-          <span className="w-8 h-0.5 bg-white transition-all group-hover:w-10"></span>
-          <span className="w-8 h-0.5 bg-white transition-all group-hover:w-10"></span>
-          <span className="w-8 h-0.5 bg-white transition-all group-hover:w-10"></span>
+        {/* Hamburger Menu Button */}
+        <button 
+          onClick={toggleMenu}
+          className="flex flex-col gap-2 group relative z-50 w-10 h-10 justify-center items-center"
+          aria-label="Toggle menu"
+        >
+          <span 
+            className={`w-8 h-0.5 bg-white transition-all duration-300 ${
+              isMenuOpen ? 'rotate-45 translate-y-2.5' : 'group-hover:w-10'
+            }`}
+          ></span>
+          <span 
+            className={`w-8 h-0.5 bg-white transition-all duration-300 ${
+              isMenuOpen ? 'opacity-0' : 'group-hover:w-10'
+            }`}
+          ></span>
+          <span 
+            className={`w-8 h-0.5 bg-white transition-all duration-300 ${
+              isMenuOpen ? '-rotate-45 -translate-y-2.5' : 'group-hover:w-10'
+            }`}
+          ></span>
         </button>
       </header>
+
+      {/* Brown Panel - Slides down to 75% of screen */}
+      <div 
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-700 ease-in-out ${
+          isMenuOpen ? 'h-[75vh]' : 'h-0'
+        } overflow-hidden`}
+        style={{ backgroundColor: '#8B4513' }}
+      ></div>
 
       {/* Hero PNG Image - Positioned at top/center with Fade Effect */}
       <div className="absolute left-1/2 top-0 -translate-x-1/2 z-5 w-full h-full flex items-start justify-center pt-16">
@@ -69,14 +89,12 @@ const Hero = () => {
         </h1>
 
         {/* CTA Buttons */}
-        <div className="flex flex-wrap gap-4 mt-8 justify-center">
-          <button className="group relative px-8 py-4 bg-transparent text-white text-base font-semibold rounded-full transition-all duration-300 hover:scale-105">
-            <span className="relative z-10 tracking-wide">Get in touch</span>
-            <div className="absolute inset-0 rounded-full border-2 border-white/30 group-hover:border-white transition-colors duration-300"></div>
-            <div className="absolute inset-0 rounded-full bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div className="flex flex-wrap gap-6 mt-8 justify-center">
+          <button className="group relative px-8 py-4 bg-white/10 backdrop-blur-sm text-white text-base font-semibold rounded-full border-2 border-white transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black hover:shadow-[0_8px_30px_rgba(255,255,255,0.3)]">
+            <span className="tracking-wide">Get in touch</span>
           </button>
-          <button className="px-7 py-3 bg-transparent text-white text-base rounded-full font-medium border-2 border-transparent hover:border-white transition-all hover:scale-105">
-            See my projects
+          <button className="group relative px-8 py-4 bg-transparent text-white text-base font-semibold rounded-full border-2 border-transparent hover:border-white transition-all duration-300 hover:scale-105">
+            <span className="tracking-wide">See my projects</span>
           </button>
         </div>
       </div>
