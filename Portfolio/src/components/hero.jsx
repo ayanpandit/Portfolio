@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import heroImage from '../assets/hero.png';
+import RotatingText from './hero_text_animation';
 
 const Hero = () => {
   const canvasRef = useRef(null);
@@ -110,42 +111,21 @@ const Hero = () => {
             I'm Dominicus,
           </div>
           
-          {/* 3D Cube Text Rotation */}
-          <div className="relative h-20 md:h-24 lg:h-32 flex items-center justify-center w-full" style={{ perspective: '1000px' }}>
-            <div
-              className="relative w-full max-w-4xl h-full"
-              style={{
-                transformStyle: 'preserve-3d',
-                transform: `rotateX(${currentIndex * 180}deg)`,
-                transition: 'transform 1s ease-in-out'
-              }}
-            >
-              {/* Front Face */}
-              <div
-                className="absolute inset-0 flex items-center justify-center"
-                style={{
-                  backfaceVisibility: 'hidden',
-                  transform: 'translateZ(40px)'
-                }}
-              >
-                <div className="text-4xl md:text-5xl lg:text-7xl tracking-wider px-4" style={{ fontFamily: 'Anton, Oswald, Chela One, Norican, Pompiere, Varela Round, sans-serif', color: '#808080' }}>
-                  {titles[0]}
-                </div>
-              </div>
-
-              {/* Back Face */}
-              <div
-                className="absolute inset-0 flex items-center justify-center"
-                style={{
-                  backfaceVisibility: 'hidden',
-                  transform: 'rotateX(180deg) translateZ(40px)'
-                }}
-              >
-                <div className="text-4xl md:text-5xl lg:text-7xl tracking-wider px-4" style={{ fontFamily: 'Anton, Oswald, Chela One, Norican, Pompiere, Varela Round, sans-serif', color: '#808080' }}>
-                  {titles[1]}
-                </div>
-              </div>
-            </div>
+          {/* RotatingText Component */}
+          <div className="flex items-center justify-center w-full">
+            <RotatingText
+              texts={['WEB DESIGNER.', 'WEB DEVELOPER.']}
+              mainClassName="px-2 sm:px-2 md:px-3 text-4xl md:text-5xl lg:text-7xl tracking-wider overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+              staggerFrom="last"
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-120%" }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={2000}
+              style={{ fontFamily: 'Anton, Oswald, Chela One, Norican, Pompiere, Varela Round, sans-serif', color: '#808080' }}
+            />
           </div>
         </h1>
 
