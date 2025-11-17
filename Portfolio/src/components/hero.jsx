@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import heroImage from '../assets/hero.png';
 import RotatingText from './hero_text_animation';
-import StarryBackground from './hero_background';
 
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = React.useState(0);
@@ -16,8 +15,6 @@ const Hero = () => {
 
   return (
     <div className="relative w-full h-screen bg-black overflow-hidden">
-      {/* Animated Starry Background */}
-      <StarryBackground />
       {/* Header */}
       <header className="absolute top-0 left-0 right-0 z-20 flex justify-between items-center px-8 md:px-16 py-8">
         {/* Logo */}
@@ -35,9 +32,9 @@ const Hero = () => {
 
       {/* Hero PNG Image - Positioned at top/center with Fade Effect */}
       <div className="absolute left-1/2 top-0 -translate-x-1/2 z-5 w-full h-full flex items-start justify-center pt-16">
-        <img 
+        <img
           src={heroImage}
-          alt="Hero" 
+          alt="Hero"
           className="w-auto h-2/3 object-contain"
           style={{
             maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%)',
@@ -52,7 +49,7 @@ const Hero = () => {
           <div className="text-4xl md:text-5xl lg:text-6xl mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
             I'm Dominicus,
           </div>
-          
+
           {/* RotatingText Component */}
           <div className="flex items-center justify-center w-full">
             <RotatingText
@@ -73,8 +70,10 @@ const Hero = () => {
 
         {/* CTA Buttons */}
         <div className="flex flex-wrap gap-4 mt-8 justify-center">
-          <button className="px-7 py-3 bg-white text-black text-base rounded-full font-medium hover:bg-gray-200 transition-all hover:scale-105">
-            Get in touch
+          <button className="group relative px-8 py-4 bg-transparent text-white text-base font-semibold rounded-full transition-all duration-300 hover:scale-105">
+            <span className="relative z-10 tracking-wide">Get in touch</span>
+            <div className="absolute inset-0 rounded-full border-2 border-white/30 group-hover:border-white transition-colors duration-300"></div>
+            <div className="absolute inset-0 rounded-full bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </button>
           <button className="px-7 py-3 bg-transparent text-white text-base rounded-full font-medium border-2 border-transparent hover:border-white transition-all hover:scale-105">
             See my projects
