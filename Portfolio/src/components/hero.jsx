@@ -68,7 +68,7 @@ const Hero = () => {
       <header className="absolute top-0 left-0 right-0 z-50 flex justify-between items-center px-8 md:px-16 py-8">
         {/* Logo */}
         <div className="text-white text-3xl md:text-4xl italic" style={{ fontFamily: 'Brush Script MT, cursive' }}>
-          Dominicus
+          AYAN
         </div>
 
         {/* Hamburger Menu Button */}
@@ -101,7 +101,47 @@ const Hero = () => {
           isMenuOpen ? 'h-[75vh]' : 'h-0'
         } overflow-hidden`}
         style={{ backgroundColor: '#8B4513' }}
-      ></div>
+      >
+        {/* Navigation Menu Items */}
+        <nav className="flex flex-col items-start justify-center h-full px-8 md:px-16 gap-4 pt-20 w-full">
+          <a 
+            href="#home" 
+            className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden"
+            style={{ fontFamily: 'Playfair Display, serif' }}
+            onClick={toggleMenu}
+          >
+            <span>Home</span>
+            <span className="ml-4 h-0.5 bg-white flex-grow scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
+          </a>
+          <a 
+            href="#articles" 
+            className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden"
+            style={{ fontFamily: 'Playfair Display, serif' }}
+            onClick={toggleMenu}
+          >
+            <span>Articles</span>
+            <span className="ml-4 h-0.5 bg-white flex-grow scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
+          </a>
+          <a 
+            href="#projects" 
+            className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden"
+            style={{ fontFamily: 'Playfair Display, serif' }}
+            onClick={toggleMenu}
+          >
+            <span>Projects</span>
+            <span className="ml-4 h-0.5 bg-white flex-grow scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
+          </a>
+          <a 
+            href="#contact" 
+            className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden"
+            style={{ fontFamily: 'Playfair Display, serif' }}
+            onClick={toggleMenu}
+          >
+            <span>Get in touch</span>
+            <span className="ml-4 h-0.5 bg-white flex-grow scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
+          </a>
+        </nav>
+      </div>
 
       {/* Blur overlay when menu is open */}
       {isMenuOpen && (
@@ -125,7 +165,7 @@ const Hero = () => {
       <div className="relative z-10 flex flex-col items-center justify-end h-full px-4 w-full pb-32">
         <h1 className="text-white text-center mb-4 w-full max-w-7xl">
           <div className="text-4xl md:text-5xl lg:text-6xl mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
-            I'm Dominicus,
+            I'm Ayan,
           </div>
 
           {/* RotatingText Component */}
