@@ -1,9 +1,60 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import heroImage from '../assets/hero.png';
 import RotatingText from './hero_text_animation';
 
 const Hero = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let animationFrameId;
+    // Set canvas size
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    // Create stars
+    const stars = Array.from({ length: 150 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 1.5,
+      opacity: Math.random() * 0.5 + 0.3,
+      speed: Math.random() * 0.2 + 0.05,
+      twinkle: Math.random() * 0.02
+    }));
+    // Animation loop
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(star => {
+        // Twinkling effect
+        star.opacity += star.twinkle;
+        if (star.opacity > 0.8 || star.opacity < 0.2) {
+          star.twinkle *= -1;
+        }
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+        ctx.fill();
+        // Move stars slowly
+        star.y += star.speed;
+        if (star.y > canvas.height) {
+          star.y = 0;
+          star.x = Math.random() * canvas.width;
+        }
+      });
+      animationFrameId = requestAnimationFrame(animate);
+    };
+    animate();
+    return () => {
+      window.removeEventListener('resize', resizeCanvas);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -11,6 +62,8 @@ const Hero = () => {
 
   return (
     <div className="relative w-full h-screen bg-black overflow-hidden">
+        {/* Animated Stars Canvas */}
+        <canvas ref={canvasRef} className="absolute inset-0 z-0" />
       {/* Header */}
       <header className="absolute top-0 left-0 right-0 z-50 flex justify-between items-center px-8 md:px-16 py-8">
         {/* Logo */}
@@ -49,6 +102,11 @@ const Hero = () => {
         } overflow-hidden`}
         style={{ backgroundColor: '#8B4513' }}
       ></div>
+
+      {/* Blur overlay when menu is open */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 z-30 backdrop-blur-md bg-black/30 transition-all duration-500" />
+      )}
 
       {/* Hero PNG Image - Positioned at top/center with Fade Effect */}
       <div className="absolute left-1/2 top-0 -translate-x-1/2 z-5 w-full h-full flex items-start justify-center pt-16">
