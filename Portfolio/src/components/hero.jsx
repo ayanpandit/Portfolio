@@ -107,7 +107,7 @@ const Hero = () => {
           <a 
             href="#home" 
             className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden"
-            style={{ fontFamily: 'Playfair Display, serif' }}
+            style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}
             onClick={toggleMenu}
           >
             <span>Home</span>
@@ -116,7 +116,7 @@ const Hero = () => {
           <a 
             href="#articles" 
             className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden"
-            style={{ fontFamily: 'Playfair Display, serif' }}
+            style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}
             onClick={toggleMenu}
           >
             <span>Articles</span>
@@ -125,7 +125,7 @@ const Hero = () => {
           <a 
             href="#projects" 
             className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden"
-            style={{ fontFamily: 'Playfair Display, serif' }}
+            style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}
             onClick={toggleMenu}
           >
             <span>Projects</span>
@@ -134,7 +134,7 @@ const Hero = () => {
           <a 
             href="#contact" 
             className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden"
-            style={{ fontFamily: 'Playfair Display, serif' }}
+            style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}
             onClick={toggleMenu}
           >
             <span>Get in touch</span>
