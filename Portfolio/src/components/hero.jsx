@@ -164,7 +164,7 @@ const Hero = () => {
       {/* Main Content - Positioned Lower */}
       <div className="relative z-10 flex flex-col items-center justify-end h-full px-4 w-full pb-32">
         <h1 className="text-white text-center mb-4 w-full max-w-7xl">
-          <div className="text-4xl md:text-5xl lg:text-6xl mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+          <div className="text-4xl md:text-5xl lg:text-6xl mb-2" style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}>
             I'm Ayan,
           </div>
 
