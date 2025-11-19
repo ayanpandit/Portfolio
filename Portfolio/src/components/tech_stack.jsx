@@ -50,9 +50,9 @@ const Tech_stack = () => {
   const duplicatedStack = [...techStack, ...techStack];
 
   return (
-    <div className="relative w-full bg-black py-10 overflow-hidden">
-      {/* Scrolling Container */}
-      <div className="relative">
+    <div className="relative w-full bg-black py-10 overflow-hidden flex justify-center">
+      {/* Scrolling Container centered at 75% width */}
+      <div className="relative w-3/4 mx-auto">
         {/* Gradient Overlays for smooth fade */}
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black to-transparent z-10"></div>
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black to-transparent z-10"></div>
