@@ -66,12 +66,16 @@ const Tech_stack = () => {
                 key={`${tech.name}-${index}`}
                 className="flex-shrink-0 group"
               >
-                <div className="relative flex flex-col items-center justify-center w-20 h-20">
+                <div className="relative flex flex-col items-center justify-center w-28 h-28">
                   {/* Icon */}
                   <Icon 
-                    className="text-5xl transition-all duration-300 group-hover:scale-110" 
+                    className="text-7xl transition-all duration-300 group-hover:scale-110" 
                     style={{ color: tech.color }}
                   />
+                  {/* Tech Name */}
+                  <span className="mt-2 text-white text-sm font-semibold tracking-wide text-center select-none">
+                    {tech.name}
+                  </span>
                 </div>
               </div>
             );
