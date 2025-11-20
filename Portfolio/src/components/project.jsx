@@ -2,33 +2,7 @@ import React from 'react';
 
 export default function Projects() {
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden font-sans">
-      {/* Animated stars background */}
-      <div className="absolute inset-0">
-        {[...Array(80)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute bg-white rounded-full"
-            style={{
-              width: Math.random() > 0.7 ? '2px' : '1px',
-              height: Math.random() > 0.7 ? '2px' : '1px',
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              opacity: Math.random() * 0.4 + 0.2,
-              animation: `twinkle ${Math.random() * 3 + 2}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 3}s`
-            }}
-          />
-        ))}
-      </div>
-
-      <style>{`
-        @keyframes twinkle {
-          0%, 100% { opacity: 0.2; }
-          50% { opacity: 0.6; }
-        }
-      `}</style>
-
+    <div className="min-h-screen bg-black text-white font-sans">
       <div className="relative z-10 max-w-[1400px] mx-auto px-12 py-16">
         {/* Header with line */}
         <div className="mb-12">
