@@ -1,5 +1,5 @@
 import React from 'react';
-import image from '../assets/image.png';
+
 
 export default function Projects() {
   return (
@@ -32,7 +32,12 @@ export default function Projects() {
 
 
       <div className="flex items-center justify-center py-16">
-        <img src={image} alt="Project" className="max-w-full max-h-[80vh] rounded-lg shadow-lg" />
+        <iframe
+          src="https://fra-atlas-1-h1q6.onrender.com/#/"
+          title="Project Website"
+          className="w-full max-w-5xl h-[80vh] rounded-lg shadow-lg border-0"
+          allowFullScreen
+        ></iframe>
       </div>
         </div>
       </div>
