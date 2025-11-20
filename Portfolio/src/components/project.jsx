@@ -31,7 +31,7 @@ export default function Projects() {
                   
 
 
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center py-16">
         <img src={image} alt="Project" className="max-w-full max-h-[80vh] rounded-lg shadow-lg" />
       </div>
         </div>
