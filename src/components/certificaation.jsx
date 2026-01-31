@@ -83,7 +83,7 @@ export default function Certifications() {
           {certifications.map((cert, index) => (
             <motion.div 
               key={index}
-              className="border-t border-white/20 py-6 hover:bg-white/5 transition-colors duration-300"
+              className="border-t border-white/20 py-10 hover:bg-white/5 transition-colors duration-300"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
