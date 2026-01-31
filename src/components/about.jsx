@@ -30,7 +30,7 @@ export default function About() {
         {/* Header with line */}
         <div className="mb-16">
           <div className="flex items-center gap-8">
-            <h1 className="text-[72px] font-light tracking-tight">
+            <h1 className="text-[48px] font-light tracking-tight playwrite-nz-basic">
               About
             </h1>
             <div className="flex-1 h-[1px] bg-white"></div>

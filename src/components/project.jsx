@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import projectImage from '../assets/skillboard.png';
 import skillboardVideo from '../assets/skillboardvid.mp4';
@@ -83,13 +82,13 @@ export default function Projects() {
   ];
 
   return (
-    <div className="min-h-screen text-white font-sans">
+    <div className="min-h-screen text-white font-sans playwrite-nz-basic">
       <div className="relative z-10 max-w-[1400px] mx-auto px-12 py-16">
         {/* Header with line */}
         <div className="mb-12">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-8 flex-1">
-              <h1 className="text-[72px] font-light tracking-tight whitespace-nowrap" style={{ fontFamily: 'serif' }}>
+              <h1 className="text-[48px] font-light tracking-tight whitespace-nowrap">
                 Projects
               </h1>
               <div className="flex-1 h-[1px] bg-white"></div>

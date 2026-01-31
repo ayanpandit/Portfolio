@@ -4,12 +4,22 @@ const Footer = () => {
   const navLinks = ['Home', 'Articles', 'Projects', 'Contact', 'Privacy', 'Cookies'];
 
   return (
-    <footer className="text-white relative overflow-hidden" style={{
+    <footer className="text-white relative overflow-hidden playwrite-nz-basic" style={{
       background: 'rgba(17, 17, 17, 0.7)',
       backdropFilter: 'blur(10px)',
       WebkitBackdropFilter: 'blur(10px)',
       borderTop: '1px solid rgba(255, 255, 255, 0.1)'
     }}>
+
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@100..400&display=swap');
+        .playwrite-nz-basic {
+          font-family: "Playwrite NZ Basic", cursive;
+          font-optical-sizing: auto;
+          font-weight: 300;
+          font-style: normal;
+        }
+      `}</style>
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-8 py-16">

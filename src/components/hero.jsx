@@ -180,18 +180,28 @@ const Hero = () => {
         <div className="flex flex-wrap gap-6 mt-8 justify-center">
           <button 
             onClick={() => window.location.href = 'mailto:aayanpandey8528@gmail.com'}
-            className="group relative px-8 py-4 bg-white/10 backdrop-blur-sm text-white text-base font-semibold rounded-full border-2 border-white transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black hover:shadow-[0_8px_30px_rgba(255,255,255,0.3)]"
+            className="group relative px-8 py-4 bg-white/10 backdrop-blur-sm text-white text-base font-semibold rounded-full border-2 border-white transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black hover:shadow-[0_8px_30px_rgba(255,255,255,0.3)] playwrite-nz-basic"
           >
             <span className="tracking-wide">Get in touch</span>
           </button>
           <button 
             onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-            className="group relative px-8 py-4 bg-transparent text-white text-base font-semibold rounded-full border-2 border-transparent hover:border-white transition-all duration-300 hover:scale-105"
+            className="group relative px-8 py-4 bg-transparent text-white text-base font-semibold rounded-full border-2 border-transparent hover:border-white transition-all duration-300 hover:scale-105 playwrite-nz-basic"
           >
             <span className="tracking-wide">See my projects</span>
           </button>
         </div>
       </motion.div>
+
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@100..400&display=swap');
+        .playwrite-nz-basic {
+          font-family: "Playwrite NZ Basic", cursive;
+          font-optical-sizing: auto;
+          font-weight: 300;
+          font-style: normal;
+        }
+      `}</style>
     </div>
   );
 };

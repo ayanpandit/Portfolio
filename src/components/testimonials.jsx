@@ -81,11 +81,18 @@ export default function Testimonials() {
   return (
     <motion.div 
       ref={sectionRef}
-      className="min-h-screen text-white relative overflow-hidden font-sans py-16"
+      className="min-h-screen text-white relative overflow-hidden font-sans py-16 playwrite-nz-basic"
       style={{ opacity, scale }}
     >
 
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@100..400&display=swap');
+        .playwrite-nz-basic {
+          font-family: "Playwrite NZ Basic", cursive;
+          font-optical-sizing: auto;
+          font-weight: 300;
+          font-style: normal;
+        }
         @keyframes twinkle {
           0%, 100% { opacity: 0.2; }
           50% { opacity: 0.6; }
@@ -128,10 +135,10 @@ export default function Testimonials() {
                 className="flex-shrink-0 w-[400px] mx-3"
               >
                 <div
-                  className="rounded-[24px] p-6 h-full"
+                  className="rounded-[24px] p-6 h-full backdrop-blur-lg border border-white/20 shadow-lg"
                   style={{
-                    background: 'linear-gradient(145deg, #1f1f1f, #1a1a1a)',
-                    boxShadow: 'inset 2px 2px 6px rgba(0,0,0,0.6), inset -2px -2px 6px rgba(50,50,50,0.2), 4px 4px 12px rgba(0,0,0,0.5)'
+                    background: 'linear-gradient(145deg, rgba(31,31,31,0.32), rgba(26,26,26,0.18))',
+                    boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)'
                   }}
                 >
                   {/* Stars */}
@@ -181,10 +188,10 @@ export default function Testimonials() {
                 className="flex-shrink-0 w-[400px] mx-3"
               >
                 <div
-                  className="rounded-[24px] p-6 h-full"
+                  className="rounded-[24px] p-6 h-full backdrop-blur-lg border border-white/20 shadow-lg"
                   style={{
-                    background: 'linear-gradient(145deg, #1f1f1f, #1a1a1a)',
-                    boxShadow: 'inset 2px 2px 6px rgba(0,0,0,0.6), inset -2px -2px 6px rgba(50,50,50,0.2), 4px 4px 12px rgba(0,0,0,0.5)'
+                    background: 'linear-gradient(145deg, rgba(31,31,31,0.32), rgba(26,26,26,0.18))',
+                    boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)'
                   }}
                 >
                   {/* Stars */}

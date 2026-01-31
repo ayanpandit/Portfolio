@@ -85,9 +85,19 @@ const FAQComponent = () => {
   return (
     <motion.div 
       ref={sectionRef}
-      className="min-h-screen relative overflow-hidden"
+      className="min-h-screen relative overflow-hidden playwrite-nz-basic"
       style={{ opacity }}
     >
+
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@100..400&display=swap');
+        .playwrite-nz-basic {
+          font-family: "Playwrite NZ Basic", cursive;
+          font-optical-sizing: auto;
+          font-weight: 300;
+          font-style: normal;
+        }
+      `}</style>
 
       {/* Content */}
       <motion.div 
@@ -95,7 +105,7 @@ const FAQComponent = () => {
         style={{ y }}
       >
         <motion.h1 
-          className="text-white text-7xl font-serif mb-20 tracking-tight"
+          className="text-white text-6xl font-serif mb-20 tracking-tight"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}

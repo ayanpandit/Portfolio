@@ -64,10 +64,17 @@ export default function Services() {
   return (
     <div 
       ref={sectionRef}
-      className="min-h-screen text-white relative overflow-hidden font-sans"
+      className="min-h-screen text-white relative overflow-hidden font-sans playwrite-nz-basic"
     >
 
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@100..400&display=swap');
+        .playwrite-nz-basic {
+          font-family: "Playwrite NZ Basic", cursive;
+          font-optical-sizing: auto;
+          font-weight: 300;
+          font-style: normal;
+        }
         @keyframes twinkle {
           0%, 100% { opacity: 0.2; }
           50% { opacity: 0.6; }
@@ -80,7 +87,7 @@ export default function Services() {
         {/* Header with line */}
         <div className="mb-16">
           <div className="flex items-center gap-8">
-            <h1 className="text-[72px] font-light tracking-tight" style={{ fontFamily: 'serif' }}>
+            <h1 className="text-[48px] font-light tracking-tight">
               Services
             </h1>
             <div className="flex-1 h-[1px] bg-white"></div>
