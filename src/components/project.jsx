@@ -83,7 +83,7 @@ export default function Projects() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans">
+    <div className="min-h-screen text-white font-sans">
       <div className="relative z-10 max-w-[1400px] mx-auto px-12 py-16">
         {/* Header with line */}
         <div className="mb-12">

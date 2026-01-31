@@ -64,7 +64,7 @@ export default function Services() {
   return (
     <div 
       ref={sectionRef}
-      className="min-h-screen bg-black text-white relative overflow-hidden font-sans"
+      className="min-h-screen text-white relative overflow-hidden font-sans"
     >
 
       <style>{`

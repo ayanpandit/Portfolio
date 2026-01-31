@@ -10,7 +10,7 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden font-sans">
+    <div className="min-h-screen text-white relative overflow-hidden font-sans">
 
       <style>{`
         @keyframes twinkle {

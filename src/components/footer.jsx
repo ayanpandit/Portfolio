@@ -1,5 +1,5 @@
 import React from 'react';
-import footerImage from '../assets/footer.png';
+import footerImage from '../assets/footer.webp';
 const Footer = () => {
   const navLinks = ['Home', 'Articles', 'Projects', 'Contact', 'Privacy', 'Cookies'];
 
@@ -43,10 +43,14 @@ const Footer = () => {
 
           {/* Right side - CTA */}
           <div className="flex flex-col items-start lg:items-end justify-start">
-            <div className="relative w-48 h-48 mb-8">
+            <div className="relative w-48 h-48 mb-8 flex-shrink-0">
               <img
                 src={footerImage}
                 alt="Profile"
+                loading="lazy"
+                decoding="async"
+                width={192}
+                height={192}
                 className="w-full h-full rounded-full object-cover grayscale"
               />
             </div>

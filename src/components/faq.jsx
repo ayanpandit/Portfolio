@@ -85,7 +85,7 @@ const FAQComponent = () => {
   return (
     <motion.div 
       ref={sectionRef}
-      className="min-h-screen bg-black relative overflow-hidden"
+      className="min-h-screen relative overflow-hidden"
       style={{ opacity }}
     >
 

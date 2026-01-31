@@ -81,7 +81,7 @@ export default function Testimonials() {
   return (
     <motion.div 
       ref={sectionRef}
-      className="min-h-screen bg-black text-white relative overflow-hidden font-sans py-16"
+      className="min-h-screen text-white relative overflow-hidden font-sans py-16"
       style={{ opacity, scale }}
     >
 

@@ -16,6 +16,7 @@ import Certifications from "./components/certificaation";
 import Testimonials from "./components/testimonials";
 import FAQComponent from "./components/faq";
 import Footer from "./components/footer";
+import StarryBackground from "./components/hero_background";
 import { useSmoothScroll } from "./context/SmoothScrollContext";
 import { useEffect } from "react";
 
@@ -54,46 +55,54 @@ function App() {
 
   return (
     <>
-      {/* 
-        Section wrapper structure
-        Each section has an id for anchor navigation
-        data-scroll-section can be used for section-specific scroll effects
-      */}
-      <section id="home" data-scroll-section>
-        <Hero />
-      </section>
-      
-      <section data-scroll-section>
-        <Tech_stack />
-      </section>
-      
-      <section data-scroll-section>
-        <About />
-      </section>
-      
-      <section id="services" data-scroll-section>
-        <Services />
-      </section>
-      
-      <section id="projects" data-scroll-section>
-        <Projects />
-      </section>
-      
-      <section data-scroll-section>
-        <Certifications />
-      </section>
-      
-      <section data-scroll-section>
-        <Testimonials />
-      </section>
-      
-      <section data-scroll-section>
-        <FAQComponent />
-      </section>
-      
-      <section id="footer" data-scroll-section>
-        <Footer />
-      </section>
+      {/* Fixed starry background - stays in place while content scrolls */}
+      <div className="fixed inset-0 z-0 bg-black">
+        <StarryBackground />
+      </div>
+
+      {/* Scrollable content layer */}
+      <div className="relative z-10">
+        {/* 
+          Section wrapper structure
+          Each section has an id for anchor navigation
+          data-scroll-section can be used for section-specific scroll effects
+        */}
+        <section id="home" data-scroll-section>
+          <Hero />
+        </section>
+        
+        <section data-scroll-section>
+          <Tech_stack />
+        </section>
+        
+        <section data-scroll-section>
+          <About />
+        </section>
+        
+        <section id="services" data-scroll-section>
+          <Services />
+        </section>
+        
+        <section id="projects" data-scroll-section>
+          <Projects />
+        </section>
+        
+        <section data-scroll-section>
+          <Certifications />
+        </section>
+        
+        <section data-scroll-section>
+          <Testimonials />
+        </section>
+        
+        <section data-scroll-section>
+          <FAQComponent />
+        </section>
+        
+        <section id="footer" data-scroll-section>
+          <Footer />
+        </section>
+      </div>
     </>
   );
 }

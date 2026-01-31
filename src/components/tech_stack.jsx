@@ -108,7 +108,7 @@ const Tech_stack = () => {
   return (
     <motion.div 
       ref={sectionRef}
-      className="relative w-full bg-black py-10 overflow-hidden"
+      className="relative w-full py-10 overflow-hidden"
       style={{ opacity, scale }}
     >
       {/* 3D Perspective Container - 80% width centered */}
