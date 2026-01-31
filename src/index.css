@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * ============================================
+ * LENIS SMOOTH SCROLL - CSS REQUIREMENTS
+ * ============================================
+ * 
+ * These styles are CRITICAL for Lenis to function correctly.
+ * Do not modify without understanding the implications.
+ */
+
+/**
+ * HTML Element Configuration
+ * 
+ * WHY NO scroll-behavior: smooth?
+ * Lenis handles scrolling via JavaScript. CSS scroll-behavior
+ * would fight against Lenis and cause jank/double scrolling.
+ * 
+ * height: 100% enables proper scroll calculation
+ */
+html {
+  /* REMOVED: scroll-behavior: smooth - conflicts with Lenis */
+  height: 100%;
+}
+
+/**
+ * Lenis-specific body styles
+ * 
+ * CRITICAL RULES:
+ * 1. min-height: 100% ensures body fills viewport
+ * 2. overflow-x: clip (not hidden) prevents horizontal scroll
+ *    while allowing sticky elements to work
+ * 3. -webkit-overflow-scrolling is NOT needed with Lenis
+ *    (it's for native momentum scrolling which we're replacing)
+ */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+body {
+  background-color: black;
+  overflow-x: clip; /* Better than hidden for sticky compatibility */
+  min-height: 100%;
+  /* Prevent pull-to-refresh on mobile */
+  overscroll-behavior-y: none;
+}
+
+/**
+ * Accessibility: Reduced Motion Support
+ * 
+ * When user prefers reduced motion:
+ * - Re-enable native smooth scroll as fallback
+ * - Lenis will detect this and disable itself
+ * 
+ * This is WCAG 2.1 Level AAA compliant
+ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/**
+ * Custom Scrollbar - Premium Aesthetic
+ * 
+ * Matches dark theme portfolio aesthetic.
+ * Consider hiding completely for ultra-clean look:
+ * ::-webkit-scrollbar { width: 0; height: 0; }
+ */
+::-webkit-scrollbar {
+  width: 8px; /* Slightly thinner = more premium */
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border-radius: 4px;
+  border: 2px solid #000000; /* Creates inset effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
+
+/* Firefox scrollbar styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1a1a1a #000000;
+}
+
+/**
+ * Performance Optimization Classes
+ * 
+ * Apply these to elements that animate or transform frequently
+ * to promote them to GPU layers and prevent layout thrashing
+ */
+.scroll-optimized {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/**
+ * Prevent content shift during scroll
+ * Apply to sections to maintain layout stability
+ */
+[data-scroll-section] {
+  position: relative;
+  contain: layout style; /* CSS containment for performance */
+}
+
+/**
+ * Sticky Element Compatibility
+ * 
+ * Lenis preserves native sticky behavior, but ensure:
+ * 1. Parent has explicit height or is in normal flow
+ * 2. No overflow: hidden on ancestors
+ * 3. Use position: sticky with top/bottom value
+ */
+.sticky-element {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/**
+ * Smooth transitions for scroll-linked elements
+ * Add to elements that animate based on scroll position
+ */
+.scroll-linked {
+  transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}

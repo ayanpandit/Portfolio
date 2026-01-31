@@ -1,0 +1,256 @@
+import React, { useEffect, useState, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import heroImage from '../assets/hero1.png';
+import RotatingText from './hero_text_animation';
+
+const Hero = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const canvasRef = useRef(null);
+  const heroRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
+  const imageScale = useTransform(scrollYProgress, [0, 0.8], [1, 1.6]);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let animationFrameId;
+    // Set canvas size
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    // Create stars
+    const stars = Array.from({ length: 150 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 1.5,
+      opacity: Math.random() * 0.5 + 0.3,
+      speed: Math.random() * 0.2 + 0.05,
+      twinkle: Math.random() * 0.02
+    }));
+    // Animation loop
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(star => {
+        // Twinkling effect
+        star.opacity += star.twinkle;
+        if (star.opacity > 0.8 || star.opacity < 0.2) {
+          star.twinkle *= -1;
+        }
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+        ctx.fill();
+        // Move stars slowly
+        star.y += star.speed;
+        if (star.y > canvas.height) {
+          star.y = 0;
+          star.x = Math.random() * canvas.width;
+        }
+      });
+      animationFrameId = requestAnimationFrame(animate);
+    };
+    animate();
+    return () => {
+      window.removeEventListener('resize', resizeCanvas);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  return (
+    <div ref={heroRef} className="relative w-full h-screen bg-black overflow-hidden">
+        {/* Animated Stars Canvas */}
+        <motion.canvas 
+          ref={canvasRef} 
+          className="absolute inset-0 z-0"
+          style={{ y, opacity }}
+        />
+      {/* Header */}
+      <header className="absolute top-0 left-0 right-0 z-50 flex justify-between items-center px-8 md:px-16 py-8">
+        {/* Logo */}
+        <motion.div 
+          className="text-white text-3xl md:text-4xl italic" 
+          style={{ fontFamily: 'Brush Script MT, cursive' }}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          AYAN
+        </motion.div>
+
+        {/* Hamburger Menu Button */}
+        <button 
+          onClick={toggleMenu}
+          className="flex flex-col gap-2 group relative z-50 w-10 h-10 justify-center items-center"
+          aria-label="Toggle menu"
+        >
+          <span 
+            className={`w-8 h-0.5 bg-white transition-all duration-300 ${
+              isMenuOpen ? 'rotate-45 translate-y-2.5' : 'group-hover:w-10'
+            }`}
+          ></span>
+          <span 
+            className={`w-8 h-0.5 bg-white transition-all duration-300 ${
+              isMenuOpen ? 'opacity-0' : 'group-hover:w-10'
+            }`}
+          ></span>
+          <span 
+            className={`w-8 h-0.5 bg-white transition-all duration-300 ${
+              isMenuOpen ? '-rotate-45 -translate-y-2.5' : 'group-hover:w-10'
+            }`}
+          ></span>
+        </button>
+      </header>
+
+      {/* Brown Panel - Slides down to 75% of screen */}
+      <div 
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-700 ease-in-out ${
+          isMenuOpen ? 'h-[75vh]' : 'h-0'
+        } overflow-hidden`}
+        style={{ backgroundColor: '#8B4513' }}
+      >
+        {/* Navigation Menu Items */}
+        <nav className="flex flex-col items-start justify-center h-full px-8 md:px-16 gap-4 pt-20 w-full">
+          <a 
+            href="#home" 
+            className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden hover:scale-110 focus:scale-110 origin-center"
+            style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}
+            onClick={(e) => {
+              e.preventDefault();
+              toggleMenu();
+              document.querySelector('#home')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }}
+          >
+            <span>Home</span>
+            <span className="ml-4 h-0.5 bg-white flex-grow scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
+          </a>
+          <a 
+            href="#services" 
+            className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden hover:scale-110 focus:scale-110 origin-center"
+            style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}
+            onClick={(e) => {
+              e.preventDefault();
+              toggleMenu();
+              document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }}
+          >
+            <span>Services</span>
+            <span className="ml-4 h-0.5 bg-white flex-grow scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
+          </a>
+          <a 
+            href="#projects" 
+            className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden hover:scale-110 focus:scale-110 origin-center"
+            style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}
+            onClick={(e) => {
+              e.preventDefault();
+              toggleMenu();
+              document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }}
+          >
+            <span>Projects</span>
+            <span className="ml-4 h-0.5 bg-white flex-grow scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
+          </a>
+          <a 
+            href="#footer" 
+            className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden hover:scale-110 focus:scale-110 origin-center"
+            style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}
+            onClick={(e) => {
+              e.preventDefault();
+              toggleMenu();
+              document.querySelector('#footer')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }}
+          >
+            <span>Get in touch</span>
+            <span className="ml-4 h-0.5 bg-white flex-grow scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
+          </a>
+        </nav>
+      </div>
+
+      {/* Blur overlay when menu is open */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 z-30 backdrop-blur-md bg-black/30 transition-all duration-500" />
+      )}
+
+      {/* Hero PNG Image - Positioned at top/center with Fade Effect */}
+      <motion.div 
+        className="absolute left-1/2 top-0 -translate-x-1/2 z-5 w-full h-full flex items-start justify-center pt-16"
+      >
+        <motion.img
+          src={heroImage}
+          alt="Hero"
+          className="w-auto h-2/3 object-contain"
+          style={{
+            maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%)',
+            scale: imageScale,
+            willChange: 'transform'
+          }}
+          transition={{ type: "spring", stiffness: 50, damping: 20 }}
+        />
+      </motion.div>
+
+      {/* Main Content - Positioned Lower */}
+      <motion.div 
+        className="relative z-10 flex flex-col items-center justify-end h-full px-4 w-full pb-32"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.3 }}
+      >
+        <h1 className="text-white text-center mb-4 w-full max-w-7xl">
+          <div className="text-4xl md:text-5xl lg:text-6xl mb-2" style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}>
+            I'm Ayan,
+          </div>
+
+          {/* RotatingText Component */}
+          <div className="flex items-center justify-center w-full">
+            <RotatingText
+              texts={['WEB DESIGNER.', 'WEB DEVELOPER.']}
+              mainClassName="px-2 sm:px-2 md:px-3 text-4xl md:text-5xl lg:text-7xl tracking-wider overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+              staggerFrom="last"
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-120%" }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={2000}
+              style={{ fontFamily: 'Anton, Oswald, Chela One, Norican, Pompiere, Varela Round, sans-serif', color: '#808080' }}
+            />
+          </div>
+        </h1>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-wrap gap-6 mt-8 justify-center">
+          <button 
+            onClick={() => window.location.href = 'mailto:aayanpandey8528@gmail.com'}
+            className="group relative px-8 py-4 bg-white/10 backdrop-blur-sm text-white text-base font-semibold rounded-full border-2 border-white transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black hover:shadow-[0_8px_30px_rgba(255,255,255,0.3)]"
+          >
+            <span className="tracking-wide">Get in touch</span>
+          </button>
+          <button 
+            onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+            className="group relative px-8 py-4 bg-transparent text-white text-base font-semibold rounded-full border-2 border-transparent hover:border-white transition-all duration-300 hover:scale-105"
+          >
+            <span className="tracking-wide">See my projects</span>
+          </button>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+export default Hero;
