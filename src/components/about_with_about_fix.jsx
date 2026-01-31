@@ -27,32 +27,32 @@ export default function About() {
       `}</style>
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-12 py-16">
-        {/* Header with line */}
-        <div className="mb-16">
-          <div className="flex items-center gap-8">
-            <h1 className="text-[48px] font-light tracking-tight playwrite-nz-basic">
-              About
-            </h1>
-            <div className="flex-1 h-[1px] bg-white"></div>
-          </div>
-        </div>
-
-        {/* Two column layout */}
+        {/* Two column layout with sticky left side including heading */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
-          {/* Left column - Tagline (sticky within About section) */}
-          <div className="lg:sticky lg:top-16 lg:self-start">
+          {/* Left column - Heading + Tagline (both sticky) */}
+          <div className="lg:sticky lg:top-8 lg:self-start">
+            {/* Header with line that extends across full width */}
+            <div className="mb-12">
+              <div className="flex items-center gap-8">
+                <h1 className="text-[48px] font-light tracking-tight playwrite-nz-basic">
+                  About
+                </h1>
+                <div className="h-[1px] bg-white" style={{ width: 'calc(100% + 50vw)' }}></div>
+              </div>
+            </div>
+            
             <p className="text-[28px] leading-[1.4] font-light">
-              I’m a full-stack developer building scalable web applications.
+              I'm a full-stack developer building scalable web applications.
               I focus on clean architecture, performance, and reliability.
               I enjoy turning complex problems into simple solutions
             </p>
           </div>
 
           {/* Right column - Description and Skills */}
-          <div className="space-y-10">
+          <div className="space-y-10 lg:pt-[120px]">
             {/* Description */}
             <p className="text-[15px] leading-[1.7] text-gray-400 font-light">
-              I’m Ayan, a full-stack developer who builds end-to-end web applications with a focus on structure, performance, and usability. I work across the stack—crafting responsive front-end interfaces, developing reliable back-end services, and integrating databases and APIs to deliver scalable solutions. My workflow is centered on clean architecture, version-controlled code, and well-defined systems that remain easy to maintain and extend.
+              I'm Ayan, a full-stack developer who builds end-to-end web applications with a focus on structure, performance, and usability. I work across the stack—crafting responsive front-end interfaces, developing reliable back-end services, and integrating databases and APIs to deliver scalable solutions. My workflow is centered on clean architecture, version-controlled code, and well-defined systems that remain easy to maintain and extend.
 
               Every project begins with understanding the problem and defining the system before writing code. I plan features, data flow, and application structure to ensure efficiency and clarity throughout development. The result is a production-ready application that balances speed, functionality, and simplicity, built to scale and deliver consistent value.</p>
 

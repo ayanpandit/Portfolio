@@ -10,7 +10,7 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen text-white relative font-sans playwrite-nz-basic">
+    <div className="min-h-screen text-white relative overflow-hidden font-sans playwrite-nz-basic">
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@100..400&display=swap');
@@ -38,9 +38,9 @@ export default function About() {
         </div>
 
         {/* Two column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
-          {/* Left column - Tagline (sticky within About section) */}
-          <div className="lg:sticky lg:top-16 lg:self-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+          {/* Left column - Tagline */}
+          <div>
             <p className="text-[28px] leading-[1.4] font-light">
               I’m a full-stack developer building scalable web applications.
               I focus on clean architecture, performance, and reliability.
