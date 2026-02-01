@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import StarryBackground from './hero_background';
-import project1Image from '../assets/project1.svg';
-import project1chalangeImage from '../assets/project1.svg';
-import project2Image from '../assets/project2.svg';
+import project1Image from '../assets/project2.svg';
+import project1chalangeImage from '../assets/project2.svg';
+import project2Image from '../assets/project1.svg';
 import project3Image from '../assets/project3.svg';
 import Footer from './footer';
 
@@ -165,7 +165,7 @@ export default function Project1() {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         style={{ fontFamily: 'serif' }}
                     >
-                        Skillboard
+                        AllFileChanger
                     </motion.h1>
 
                     {/* Project Description */}
@@ -175,7 +175,9 @@ export default function Project1() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
-                       SkillBoard is a web-based comparison platform that allows students to analyze and compare their coding performance across platforms like CodeChef and LeetCode, providing a unified view of individual strengths and progress.
+                       AllFileChanger is a web-based file conversion tool that allows users to convert images, documents, and PDFs directly in the browser, without uploading or storing any files on a server.
+
+
                     </motion.p>
 
                     {/* Tags */}
@@ -187,7 +189,7 @@ export default function Project1() {
                     >
                         <button
                         type="button"
-                        onClick={() => window.open('https://skillboard-nit5.onrender.com/', '_blank', 'noopener,noreferrer')}
+                        onClick={() => window.open('https://allfilechanger.onrender.com/', '_blank', 'noopener,noreferrer')}
                         className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-[13px] sm:text-[14px] md:text-[15px] text-gray-300 font-light transition-colors hover:bg-white/10 focus:outline-none"
                     >
                         Live Preview
@@ -196,7 +198,7 @@ export default function Project1() {
                         </svg>
                     </button>
                         <span className="px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-[13px] sm:text-[14px] md:text-[15px] text-gray-300 font-light">
-                            2024
+                            2025
                         </span>
                     </motion.div>
                 </div>
@@ -251,7 +253,9 @@ export default function Project1() {
                             viewport={{ once: true }}
                         >
                             <p className="text-gray-400 text-[13px] sm:text-[14px] md:text-[15px] leading-[1.6] font-light">
-                              The mission of SkillBoard is to help students, institutes, and recruiters evaluate, compare, and rank coding performance by offering a clear and structured comparison of a student’s standing among peers.
+                              The mission of AllFileChanger is to provide a secure, fast, and ad-free file conversion experience, ensuring complete user privacy by performing all operations on the client side.
+
+
 
 
                             </p>
@@ -305,7 +309,7 @@ export default function Project1() {
                             viewport={{ once: true }}
                         >
                             <p className="text-gray-400 text-[13px] sm:text-[14px] md:text-[15px] leading-[1.6] font-light">
-                              A major challenge was collecting data from platforms without public APIs, which was addressed by implementing a controlled and reliable web-scraping approach while maintaining data accuracy and stability.
+                             The key challenge was building a browser-based conversion system that is fast, user-friendly, and capable of handling multiple file formats on a single platform without compromising privacy or performance.
                             </p>
                         </motion.div>
                     </div>
@@ -333,8 +337,8 @@ export default function Project1() {
                                 <img src={project2Image} alt="Didasko" className="w-full h-full object-cover" />
                             </div>
                             <div className="w-full flex flex-col items-start">
-                                <span className="text-[20px] sm:text-[24px] md:text-[28px] font-light mb-1" style={{ fontFamily: 'serif' }}>AllFileChanger</span>
-                                <span className="text-gray-400 text-[13px] sm:text-[14px] md:text-[15px] font-light">2025</span>
+                                <span className="text-[20px] sm:text-[24px] md:text-[28px] font-light mb-1" style={{ fontFamily: 'serif' }}>SkillBoard</span>
+                                <span className="text-gray-400 text-[13px] sm:text-[14px] md:text-[15px] font-light">2024</span>
                             </div>
                         </div>
                         {/* Project 3 */}

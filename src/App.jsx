@@ -8,6 +8,7 @@
  * - All anchor links should use scrollTo() for smooth navigation
  */
 
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Hero from "./components/hero";
 import Tech_stack from "./components/tech_stack";
@@ -20,6 +21,7 @@ import FAQComponent from "./components/faq";
 import Footer from "./components/footer";
 import StarryBackground from "./components/hero_background";
 import Project1 from "./components/project1";
+import Project2 from "./components/project2";
 import { useSmoothScroll } from "./context/SmoothScrollContext";
 import { useEffect } from "react";
 
@@ -117,7 +119,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/project/1" element={<Project1 />} />
-      <Route path="/project/2" element={<Project1 />} />
+      <Route path="/project/2" element={<Project2 />} />
       <Route path="/project/3" element={<Project1 />} />
       <Route path="/project/4" element={<Project1 />} />
       <Route path="/project/5" element={<Project1 />} />
