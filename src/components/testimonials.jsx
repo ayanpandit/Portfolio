@@ -81,7 +81,7 @@ export default function Testimonials() {
   return (
     <motion.div 
       ref={sectionRef}
-      className="min-h-screen text-white relative overflow-hidden font-sans py-16 playwrite-nz-basic"
+      className="min-h-screen text-white relative overflow-hidden font-sans py-8 sm:py-10 md:py-16 playwrite-nz-basic"
       style={{ opacity, scale }}
     >
 
@@ -127,30 +127,30 @@ export default function Testimonials() {
 
       <div className="relative z-10">
         {/* First Row - Scrolling Left to Right */}
-        <div className="overflow-hidden mb-6">
+        <div className="overflow-hidden mb-4 sm:mb-5 md:mb-6">
           <div className="flex animate-scroll-left">
             {testimonialsRow1.map((testimonial, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-[400px] mx-3"
+                className="flex-shrink-0 w-[280px] sm:w-[340px] md:w-[400px] mx-2 sm:mx-2.5 md:mx-3"
               >
                 <div
-                  className="rounded-[24px] p-6 h-full backdrop-blur-lg border border-white/20 shadow-lg"
+                  className="rounded-[16px] sm:rounded-[20px] md:rounded-[24px] p-4 sm:p-5 md:p-6 h-full backdrop-blur-lg border border-white/20 shadow-lg"
                   style={{
                     background: 'linear-gradient(145deg, rgba(31,31,31,0.32), rgba(26,26,26,0.18))',
                     boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)'
                   }}
                 >
                   {/* Stars */}
-                  <div className="flex gap-1 mb-4">
+                  <div className="flex gap-1 mb-3 sm:mb-3.5 md:mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <svg
                         key={i}
-                        width="16"
-                        height="16"
+                        width="14"
+                        height="14"
                         viewBox="0 0 24 24"
                         fill="white"
-                        className="text-white"
+                        className="text-white w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4"
                       >
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                       </svg>
@@ -158,17 +158,17 @@ export default function Testimonials() {
                   </div>
 
                   {/* Testimonial Text */}
-                  <p className="text-[14px] leading-[1.6] text-gray-300 font-light mb-6">
+                  <p className="text-[12px] sm:text-[13px] md:text-[14px] leading-[1.6] text-gray-300 font-light mb-4 sm:mb-5 md:mb-6">
                     {testimonial.text}
                   </p>
 
                   {/* Name and Role */}
                   <div>
-                    <p className="text-[15px] font-normal text-white">
+                    <p className="text-[13px] sm:text-[14px] md:text-[15px] font-normal text-white">
                       {testimonial.name}
                     </p>
                     {testimonial.role && (
-                      <p className="text-[13px] text-gray-500 font-light mt-1">
+                      <p className="text-[11px] sm:text-[12px] md:text-[13px] text-gray-500 font-light mt-1">
                         {testimonial.role}
                       </p>
                     )}
@@ -185,25 +185,25 @@ export default function Testimonials() {
             {testimonialsRow2.map((testimonial, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-[400px] mx-3"
+                className="flex-shrink-0 w-[280px] sm:w-[340px] md:w-[400px] mx-2 sm:mx-2.5 md:mx-3"
               >
                 <div
-                  className="rounded-[24px] p-6 h-full backdrop-blur-lg border border-white/20 shadow-lg"
+                  className="rounded-[16px] sm:rounded-[20px] md:rounded-[24px] p-4 sm:p-5 md:p-6 h-full backdrop-blur-lg border border-white/20 shadow-lg"
                   style={{
                     background: 'linear-gradient(145deg, rgba(31,31,31,0.32), rgba(26,26,26,0.18))',
                     boxShadow: '0 4px 24px 0 rgba(0,0,0,0.18)'
                   }}
                 >
                   {/* Stars */}
-                  <div className="flex gap-1 mb-4">
+                  <div className="flex gap-1 mb-3 sm:mb-3.5 md:mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <svg
                         key={i}
-                        width="16"
-                        height="16"
+                        width="14"
+                        height="14"
                         viewBox="0 0 24 24"
                         fill="white"
-                        className="text-white"
+                        className="text-white w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4"
                       >
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                       </svg>
@@ -211,17 +211,17 @@ export default function Testimonials() {
                   </div>
 
                   {/* Testimonial Text */}
-                  <p className="text-[14px] leading-[1.6] text-gray-300 font-light mb-6">
+                  <p className="text-[12px] sm:text-[13px] md:text-[14px] leading-[1.6] text-gray-300 font-light mb-4 sm:mb-5 md:mb-6">
                     {testimonial.text}
                   </p>
 
                   {/* Name and Role */}
                   <div>
-                    <p className="text-[15px] font-normal text-white">
+                    <p className="text-[13px] sm:text-[14px] md:text-[15px] font-normal text-white">
                       {testimonial.name}
                     </p>
                     {testimonial.role && (
-                      <p className="text-[13px] text-gray-500 font-light mt-1">
+                      <p className="text-[11px] sm:text-[12px] md:text-[13px] text-gray-500 font-light mt-1">
                         {testimonial.role}
                       </p>
                     )}

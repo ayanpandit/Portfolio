@@ -66,19 +66,19 @@ export default function Certifications() {
       `}</style>
 
       <motion.div 
-        className="relative z-10 max-w-[1400px] mx-auto px-12 py-16"
+        className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8 md:py-12 lg:py-16"
         style={{ y }}
       >
         {/* Header with line */}
         <motion.div 
-          className="mb-16"
+          className="mb-8 md:mb-12 lg:mb-16"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: false }}
         >
-          <div className="flex items-center gap-8">
-            <h1 className="text-[48px] font-light tracking-tight">
+          <div className="flex items-center gap-4 md:gap-6 lg:gap-8">
+            <h1 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-light tracking-tight">
               Certifications
             </h1>
             <div className="flex-1 h-[1px] bg-white"></div>
@@ -90,30 +90,46 @@ export default function Certifications() {
           {certifications.map((cert, index) => (
             <motion.div 
               key={index}
-              className="border-t border-white/20 py-10 hover:bg-white/5 transition-colors duration-300"
+              className="border-t border-white/20 py-5 sm:py-6 md:py-8 lg:py-10 hover:bg-white/5 transition-colors duration-300"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: false }}
             >
-              <div className="grid grid-cols-12 gap-4 items-center">
+              {/* Mobile layout - stacked */}
+              <div className="flex flex-col gap-2 md:hidden">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm sm:text-base font-normal text-white">
+                    {cert.organization}
+                  </h3>
+                  <span className="text-sm sm:text-base font-light text-white">
+                    {cert.year}
+                  </span>
+                </div>
+                <p className="text-sm sm:text-base font-light text-gray-400">
+                  {cert.achievement}
+                </p>
+              </div>
+              
+              {/* Desktop layout - grid */}
+              <div className="hidden md:grid grid-cols-12 gap-4 items-center">
                 {/* Organization name - left aligned */}
                 <div className="col-span-3">
-                  <h3 className="text-[16px] font-normal text-white">
+                  <h3 className="text-sm md:text-base font-normal text-white">
                     {cert.organization}
                   </h3>
                 </div>
 
                 {/* Achievement description - center/left */}
                 <div className="col-span-7">
-                  <p className="text-[16px] font-light text-gray-400">
+                  <p className="text-sm md:text-base font-light text-gray-400">
                     {cert.achievement}
                   </p>
                 </div>
 
                 {/* Year - right aligned */}
                 <div className="col-span-2 text-right">
-                  <span className="text-[16px] font-light text-white">
+                  <span className="text-sm md:text-base font-light text-white">
                     {cert.year}
                   </span>
                 </div>

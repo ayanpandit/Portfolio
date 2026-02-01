@@ -130,12 +130,12 @@ const Hero = () => {
 
       {/* Hero PNG Image - Positioned at top/center with Fade Effect */}
       <motion.div 
-        className="absolute left-1/2 top-0 -translate-x-[48%] z-5 w-full h-full flex items-start justify-center pt-16"
+        className="absolute left-1/2 top-0 -translate-x-[48%] z-5 w-full h-full flex items-start justify-center pt-8 sm:pt-12 md:pt-16"
       >
         <motion.img
           src={heroImage}
           alt="Hero"
-          className="w-auto h-2/3 object-contain"
+          className="w-auto h-[55%] sm:h-[60%] md:h-2/3 object-contain"
           style={{
             maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%)',
             WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%)',
@@ -148,13 +148,13 @@ const Hero = () => {
 
       {/* Main Content - Positioned Lower */}
       <motion.div 
-        className="relative z-10 flex flex-col items-center justify-end h-full px-4 w-full pb-32"
+        className="relative z-10 flex flex-col items-center justify-end h-full px-4 w-full pb-16 sm:pb-24 md:pb-32"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
       >
         <h1 className="text-white text-center mb-4 w-full max-w-7xl">
-          <div className="text-4xl md:text-5xl lg:text-6xl mb-2" style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}>
+          <div className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl mb-2" style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}>
             I'm Ayan,
           </div>
 
@@ -162,7 +162,7 @@ const Hero = () => {
           <div className="flex items-center justify-center w-full">
             <RotatingText
               texts={['WEB DESIGNER.', 'WEB DEVELOPER.']}
-              mainClassName="px-2 sm:px-2 md:px-3 text-4xl md:text-5xl lg:text-7xl tracking-wider overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+              mainClassName="px-2 sm:px-2 md:px-3 text-2xl sm:text-3xl md:text-5xl lg:text-7xl tracking-wider overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
               staggerFrom="last"
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
@@ -177,16 +177,16 @@ const Hero = () => {
         </h1>
 
         {/* CTA Buttons */}
-        <div className="flex flex-wrap gap-6 mt-8 justify-center">
+        <div className="flex flex-wrap gap-3 sm:gap-4 md:gap-6 mt-4 sm:mt-6 md:mt-8 justify-center">
           <button 
             onClick={() => window.location.href = 'mailto:aayanpandey8528@gmail.com'}
-            className="group relative px-8 py-4 bg-white/10 backdrop-blur-sm text-white text-base font-semibold rounded-full border-2 border-white transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black hover:shadow-[0_8px_30px_rgba(255,255,255,0.3)] playwrite-nz-basic"
+            className="group relative px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-white/10 backdrop-blur-sm text-white text-sm sm:text-base font-semibold rounded-full border-2 border-white transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black hover:shadow-[0_8px_30px_rgba(255,255,255,0.3)] playwrite-nz-basic"
           >
             <span className="tracking-wide">Get in touch</span>
           </button>
           <button 
             onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-            className="group relative px-8 py-4 bg-transparent text-white text-base font-semibold rounded-full border-2 border-transparent hover:border-white transition-all duration-300 hover:scale-105 playwrite-nz-basic"
+            className="group relative px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-transparent text-white text-sm sm:text-base font-semibold rounded-full border-2 border-transparent hover:border-white transition-all duration-300 hover:scale-105 playwrite-nz-basic"
           >
             <span className="tracking-wide">See my projects</span>
           </button>

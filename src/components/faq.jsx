@@ -13,16 +13,16 @@ const FAQItem = ({ number, question, answer, isOpen, onClick, index }) => {
     >
       <button
         onClick={onClick}
-        className="w-full flex items-center justify-between py-6 text-left hover:opacity-80 transition-opacity"
+        className="w-full flex items-center justify-between py-4 sm:py-5 md:py-6 text-left hover:opacity-80 transition-opacity"
         aria-expanded={isOpen}
       >
-        <div className="flex items-start gap-8">
-          <span className="text-gray-500 text-base font-light min-w-[45px]">{number}</span>
-          <h3 className="text-white text-[28px] font-light tracking-tight leading-tight">{question}</h3>
+        <div className="flex items-start gap-3 sm:gap-5 md:gap-8">
+          <span className="text-gray-500 text-xs sm:text-sm md:text-base font-light min-w-[32px] sm:min-w-[38px] md:min-w-[45px]">{number}</span>
+          <h3 className="text-white text-base sm:text-xl md:text-[28px] font-light tracking-tight leading-tight">{question}</h3>
         </div>
         <Plus 
-          className={`text-white flex-shrink-0 transition-transform duration-300 ml-8 ${isOpen ? 'rotate-45' : ''}`} 
-          size={28}
+          className={`text-white flex-shrink-0 transition-transform duration-300 ml-3 sm:ml-5 md:ml-8 ${isOpen ? 'rotate-45' : ''}`} 
+          size={20}
         />
       </button>
       <div
@@ -31,10 +31,10 @@ const FAQItem = ({ number, question, answer, isOpen, onClick, index }) => {
           maxHeight: isOpen ? 200 : 0,
           opacity: isOpen ? 1 : 0,
           paddingBottom: isOpen ? 24 : 0,
-          paddingLeft: isOpen ? 85 : 85,
+          paddingLeft: 50,
         }}
       >
-        <div className="text-gray-400 text-lg font-light" style={{transition: 'opacity 0.5s, transform 0.5s', transform: isOpen ? 'translateY(0)' : 'translateY(-10px)'}}>
+        <div className="text-gray-400 text-sm sm:text-base md:text-lg font-light pl-1 sm:pl-2 md:pl-[35px]" style={{transition: 'opacity 0.5s, transform 0.5s', transform: isOpen ? 'translateY(0)' : 'translateY(-10px)'}}>
           {isOpen && <p>{answer}</p>}
         </div>
       </div>
@@ -101,14 +101,14 @@ const FAQComponent = () => {
 
       {/* Content */}
       <motion.div 
-        className="relative z-10 max-w-6xl mx-auto px-8 py-20"
+        className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-10 sm:py-14 md:py-20"
         style={{ y }}
       >
         {/* Header with line */}
-        <div className="mb-16">
-          <div className="flex items-center gap-8">
+        <div className="mb-8 md:mb-12 lg:mb-16">
+          <div className="flex items-center gap-4 md:gap-6 lg:gap-8">
             <motion.h1 
-              className="text-white text-6xl font-serif tracking-tight"
+              className="text-white text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-serif tracking-tight"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}

@@ -82,12 +82,12 @@ export default function Services() {
       `}</style>
 
       <div 
-        className="relative z-10 max-w-[1400px] mx-auto px-12 py-16"
+        className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8 md:py-12 lg:py-16"
       >
         {/* Header with line */}
-        <div className="mb-16">
-          <div className="flex items-center gap-8">
-            <h1 className="text-[48px] font-light tracking-tight">
+        <div className="mb-8 md:mb-12 lg:mb-16">
+          <div className="flex items-center gap-4 md:gap-6 lg:gap-8">
+            <h1 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-light tracking-tight">
               Services
             </h1>
             <div className="flex-1 h-[1px] bg-white"></div>
@@ -95,11 +95,11 @@ export default function Services() {
         </div>
 
         {/* Services Grid - 2x2 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
           {services.map((service, index) => (
             <div
               key={index}
-              className="relative rounded-[28px] p-8 transition-all duration-300 hover:scale-[1.02]"
+              className="relative rounded-[20px] sm:rounded-[24px] md:rounded-[28px] p-5 sm:p-6 md:p-8 transition-all duration-300 hover:scale-[1.02]"
               style={{
                 background: 'linear-gradient(145deg, #1f1f1f, #1a1a1a)',
                 boxShadow: 'inset 2px 2px 6px rgba(0,0,0,0.6), inset -2px -2px 6px rgba(50,50,50,0.2), 4px 4px 12px rgba(0,0,0,0.5)'
@@ -107,7 +107,7 @@ export default function Services() {
             >
               {/* Icon container */}
               <div 
-                className="w-14 h-14 rounded-full flex items-center justify-center mb-8"
+                className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center mb-4 sm:mb-6 md:mb-8"
                 style={{
                   background: 'linear-gradient(145deg, #2d2d2d, #1a1a1a)',
                   boxShadow: 'inset 1px 1px 3px rgba(0,0,0,0.6), inset -1px -1px 3px rgba(60,60,60,0.2)'
@@ -117,12 +117,12 @@ export default function Services() {
               </div>
 
               {/* Title */}
-              <h3 className="text-[28px] font-light mb-4" style={{ fontFamily: 'serif' }}>
+              <h3 className="text-[20px] sm:text-[24px] md:text-[28px] font-light mb-2 sm:mb-3 md:mb-4" style={{ fontFamily: 'serif' }}>
                 {service.title}
               </h3>
 
               {/* Description */}
-              <p className="text-[15px] leading-[1.6] text-gray-400 font-light">
+              <p className="text-[13px] sm:text-[14px] md:text-[15px] leading-[1.6] text-gray-400 font-light">
                 {service.description}
               </p>
             </div>

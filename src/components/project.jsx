@@ -52,12 +52,12 @@ export default function Projects() {
         }
       `}</style>
       
-      <div className="relative z-10 max-w-[1400px] mx-auto px-12 py-16">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8 md:py-12 lg:py-16">
         {/* Header with line */}
-        <div className="mb-12">
+        <div className="mb-8 md:mb-10 lg:mb-12">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-8 flex-1">
-              <h1 className="text-[48px] font-light tracking-tight whitespace-nowrap">
+            <div className="flex items-center gap-4 md:gap-6 lg:gap-8 flex-1">
+              <h1 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-light tracking-tight whitespace-nowrap">
                 Projects
               </h1>
               <div className="flex-1 h-[1px] bg-white"></div>
@@ -66,7 +66,7 @@ export default function Projects() {
         </div>
 
         {/* Projects - Full width cards */}
-        <div className="flex flex-col gap-20">
+        <div className="flex flex-col gap-10 sm:gap-14 md:gap-16 lg:gap-20">
           {projects.map((project, index) => (
             <div key={index} className="group">
               {/* Single card with project image */}
@@ -74,7 +74,7 @@ export default function Projects() {
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block relative rounded-[32px] overflow-hidden cursor-pointer transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl aspect-[16/9] w-full max-w-full"
+                className="block relative rounded-[16px] sm:rounded-[24px] md:rounded-[32px] overflow-hidden cursor-pointer transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl aspect-[16/9] w-full max-w-full"
                 style={{
                   boxShadow: '0 8px 32px rgba(0,0,0,0.3)'
                 }}
@@ -87,12 +87,12 @@ export default function Projects() {
                 />
               </a>
               {/* Project info outside the card */}
-              <div className="flex items-center justify-between mt-6 px-2">
+              <div className="flex items-center justify-between mt-4 sm:mt-5 md:mt-6 px-1 sm:px-2">
                 <div>
-                  <h3 className="text-white text-2xl font-medium tracking-wide">
+                  <h3 className="text-white text-lg sm:text-xl md:text-2xl font-medium tracking-wide">
                     {project.title}
                   </h3>
-                  <p className="text-white/60 text-sm mt-1">
+                  <p className="text-white/60 text-xs sm:text-sm mt-1">
                     {project.year}
                   </p>
                 </div>
@@ -101,10 +101,10 @@ export default function Projects() {
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center transition-all duration-300 hover:bg-white hover:scale-110"
+                  className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center transition-all duration-300 hover:bg-white hover:scale-110"
                 >
                   <svg 
-                    className="w-5 h-5 text-white transition-colors duration-300 group-hover:text-black" 
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-white transition-colors duration-300 group-hover:text-black" 
                     fill="none" 
                     stroke="currentColor" 
                     viewBox="0 0 24 24"
