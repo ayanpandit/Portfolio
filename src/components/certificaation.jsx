@@ -75,7 +75,7 @@ export default function Certifications() {
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
         >
           <div className="flex items-center gap-8">
             <h1 className="text-[48px] font-light tracking-tight">
@@ -94,7 +94,7 @@ export default function Certifications() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
             >
               <div className="grid grid-cols-12 gap-4 items-center">
                 {/* Organization name - left aligned */}
