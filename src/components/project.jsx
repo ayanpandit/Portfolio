@@ -1,8 +1,9 @@
 import React from 'react';
-import projectImage from '../assets/skillboard.png';
-import allfilechangerImage from '../assets/allfilechanger.png';
-import smartstockImage from '../assets/smartstock.png';
-import splitilyImage from '../assets/splitily.png';
+import projectImage from '../assets/project1.png';
+import allfilechangerImage from '../assets/project2.png';
+import smartstockImage from '../assets/project3.png';
+import splitilyImage from '../assets/project4.png';
+import appuiImage from '../assets/project5.png';
 
 
 export default function Projects() {
@@ -14,21 +15,27 @@ export default function Projects() {
       url: 'https://skillboard-nit5.onrender.com/'
     },
     {
-      title: 'E-Commerce',
-      year: '2024',
+      title: 'ALLFileChanger',
+      year: '2025',
       image: allfilechangerImage,
-      url: 'https://example.com'
+      url: 'https://allfilechanger.shop'
     },
     {
-      title: 'Dashboard',
+      title: 'SmartStock',
       year: '2025',
       image: smartstockImage,
       url: 'https://example.com'
     },
     {
-      title: 'Portfolio',
+      title: 'Splitly',
       year: '2025',
       image: splitilyImage,
+      url: 'https://example.com'
+    },
+    {
+      title: 'APP.UI',
+      year: '2025',
+      image: appuiImage,
       url: 'https://example.com'
     }
   ];
@@ -62,49 +69,23 @@ export default function Projects() {
         <div className="flex flex-col gap-20">
           {projects.map((project, index) => (
             <div key={index} className="group">
-              {/* Outer card with blurred background */}
+              {/* Single card with project image */}
               <a 
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block relative rounded-[32px] overflow-hidden cursor-pointer transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl"
+                className="block relative rounded-[32px] overflow-hidden cursor-pointer transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl aspect-[16/9] w-full max-w-full"
                 style={{
                   boxShadow: '0 8px 32px rgba(0,0,0,0.3)'
                 }}
               >
-                <div className="relative w-full h-[120vh] overflow-hidden">
-                  {/* Blurred background image */}
-                  <div 
-                    className="absolute inset-0 scale-110"
-                    style={{
-                      backgroundImage: `url(${project.image})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      filter: 'blur(30px) brightness(0.7)',
-                    }}
-                  />
-                  
-                  {/* Gradient overlay for better contrast */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
-                  
-                  {/* Inner card with actual project image - even more padding, no bottom padding */}
-                  <div className="absolute top-24 left-24 right-24 bottom-0 flex items-center justify-center">
-                    <div 
-                      className="relative w-full h-full rounded-t-[24px] overflow-hidden shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
-                      style={{
-                        boxShadow: '0 20px 60px rgba(0,0,0,0.4)'
-                      }}
-                    >
-                      <img
-                        src={project.image}
-                        alt={`${project.title} Preview`}
-                        className="w-full h-full object-cover object-top"
-                      />
-                    </div>
-                  </div>
-                </div>
+                <img
+                  src={project.image}
+                  alt={`${project.title} Preview`}
+                  className="absolute inset-0 w-full h-full object-cover object-top"
+                  style={{ aspectRatio: '16/9' }}
+                />
               </a>
-              
               {/* Project info outside the card */}
               <div className="flex items-center justify-between mt-6 px-2">
                 <div>
@@ -115,7 +96,6 @@ export default function Projects() {
                     {project.year}
                   </p>
                 </div>
-                
                 {/* Arrow icon */}
                 <a 
                   href={project.url}

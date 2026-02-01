@@ -104,15 +104,21 @@ const FAQComponent = () => {
         className="relative z-10 max-w-6xl mx-auto px-8 py-20"
         style={{ y }}
       >
-        <motion.h1 
-          className="text-white text-6xl font-serif mb-20 tracking-tight"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          FAQ
-        </motion.h1>
+        {/* Header with line */}
+        <div className="mb-16">
+          <div className="flex items-center gap-8">
+            <motion.h1 
+              className="text-white text-6xl font-serif tracking-tight"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              FAQ
+            </motion.h1>
+            <div className="flex-1 h-[1px] bg-white"></div>
+          </div>
+        </div>
         
         <div className="space-y-0">
           {faqs.map((faq, index) => (
