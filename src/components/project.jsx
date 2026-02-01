@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import projectImage from '../assets/project1.svg';
 import allfilechangerImage from '../assets/project2.svg';
 import smartstockImage from '../assets/project3.svg';
@@ -7,36 +8,38 @@ import appuiImage from '../assets/project5.svg';
 
 
 export default function Projects() {
+  const navigate = useNavigate();
+  
   const projects = [
     {
       title: 'SkillBoard',
       year: '2024',
       image: projectImage,
-      url: 'https://skillboard-nit5.onrender.com/'
+      route: '/project/1'
     },
     {
       title: 'ALLFileChanger',
       year: '2025',
       image: allfilechangerImage,
-      url: 'https://allfilechanger.shop'
+      route: '/project/2'
     },
     {
       title: 'SmartStock',
       year: '2025',
       image: smartstockImage,
-      url: 'https://example.com'
+      route: '/project/3'
     },
     {
       title: 'Splitly',
       year: '2025',
       image: splitilyImage,
-      url: 'https://example.com'
+      route: '/project/4'
     },
     {
       title: 'APP.UI',
       year: '2025',
       image: appuiImage,
-      url: 'https://example.com'
+      route: '/project/5'
     }
   ];
 
@@ -70,10 +73,8 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div key={index} className="group">
               {/* Single card with project image */}
-              <a 
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
+              <div 
+                onClick={() => navigate(project.route)}
                 className="block relative rounded-[16px] sm:rounded-[24px] md:rounded-[32px] overflow-hidden cursor-pointer transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl aspect-[16/9] w-full max-w-full"
                 style={{
                   boxShadow: '0 8px 32px rgba(0,0,0,0.3)'
@@ -85,7 +86,7 @@ export default function Projects() {
                   className="absolute inset-0 w-full h-full object-cover object-top"
                   style={{ aspectRatio: '16/9' }}
                 />
-              </a>
+              </div>
               {/* Project info outside the card */}
               <div className="flex items-center justify-between mt-4 sm:mt-5 md:mt-6 px-1 sm:px-2">
                 <div>
@@ -97,21 +98,19 @@ export default function Projects() {
                   </p>
                 </div>
                 {/* Arrow icon */}
-                <a 
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center transition-all duration-300 hover:bg-white hover:scale-110"
+                <button 
+                  onClick={() => navigate(project.route)}
+                  className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center transition-all duration-300 hover:bg-white hover:scale-110 group/arrow"
                 >
                   <svg 
-                    className="w-4 h-4 sm:w-5 sm:h-5 text-white transition-colors duration-300 group-hover:text-black" 
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-white transition-colors duration-300 group-hover/arrow:text-black" 
                     fill="none" 
                     stroke="currentColor" 
                     viewBox="0 0 24 24"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
                   </svg>
-                </a>
+                </button>
               </div>
             </div>
           ))}

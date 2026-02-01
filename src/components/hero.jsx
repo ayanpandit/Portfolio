@@ -23,7 +23,7 @@ const Hero = () => {
   return (
     <div ref={heroRef} className="relative w-full h-screen overflow-hidden">
       {/* Header */}
-      <header className="absolute top-0 left-0 right-0 z-50 flex justify-between items-center px-8 md:px-16 py-8">
+      <header className="absolute top-0 left-0 right-0 z-50 flex justify-between items-center px-8 md:px-16 py-8 mb-10 md:mb-16 lg:mb-20">
         {/* Logo */}
         <motion.div 
           className="text-white text-3xl md:text-4xl italic" 
@@ -68,58 +68,54 @@ const Hero = () => {
       >
         {/* Navigation Menu Items */}
         <nav className="flex flex-col items-start justify-center h-full px-8 md:px-16 gap-4 pt-20 w-full">
-          <a 
-            href="#home" 
-            className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden hover:scale-110 focus:scale-110 origin-center"
+          <button 
+            type="button"
+            className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden hover:scale-110 focus:scale-110 origin-center bg-transparent border-none cursor-pointer text-left"
             style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}
-            onClick={(e) => {
-              e.preventDefault();
+            onClick={() => {
               toggleMenu();
               document.querySelector('#home')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }}
           >
             <span>Home</span>
             <span className="ml-4 h-0.5 bg-white flex-grow scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
-          </a>
-          <a 
-            href="#services" 
-            className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden hover:scale-110 focus:scale-110 origin-center"
+          </button>
+          <button 
+            type="button"
+            className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden hover:scale-110 focus:scale-110 origin-center bg-transparent border-none cursor-pointer text-left"
             style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}
-            onClick={(e) => {
-              e.preventDefault();
+            onClick={() => {
               toggleMenu();
               document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }}
           >
             <span>Services</span>
             <span className="ml-4 h-0.5 bg-white flex-grow scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
-          </a>
-          <a 
-            href="#projects" 
-            className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden hover:scale-110 focus:scale-110 origin-center"
+          </button>
+          <button 
+            type="button"
+            className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden hover:scale-110 focus:scale-110 origin-center bg-transparent border-none cursor-pointer text-left"
             style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}
-            onClick={(e) => {
-              e.preventDefault();
+            onClick={() => {
               toggleMenu();
               document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }}
           >
             <span>Projects</span>
             <span className="ml-4 h-0.5 bg-white flex-grow scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
-          </a>
-          <a 
-            href="#footer" 
-            className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden hover:scale-110 focus:scale-110 origin-center"
+          </button>
+          <button 
+            type="button"
+            className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden hover:scale-110 focus:scale-110 origin-center bg-transparent border-none cursor-pointer text-left"
             style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}
-            onClick={(e) => {
-              e.preventDefault();
+            onClick={() => {
               toggleMenu();
               document.querySelector('#footer')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }}
           >
             <span>Get in touch</span>
             <span className="ml-4 h-0.5 bg-white flex-grow scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
-          </a>
+          </button>
         </nav>
       </div>
 
@@ -130,7 +126,7 @@ const Hero = () => {
 
       {/* Hero PNG Image - Positioned at top/center with Fade Effect */}
       <motion.div 
-        className="absolute left-1/2 top-0 -translate-x-[48%] z-5 w-full h-full flex items-start justify-center pt-8 sm:pt-12 md:pt-16"
+        className="absolute left-1/2 top-0 -translate-x-[48%] z-5 w-full h-full flex items-start justify-center pt-20 sm:pt-20 md:pt-16"
       >
         <motion.img
           src={heroImage}

@@ -27,9 +27,10 @@ import Lenis from 'lenis';
  * like a heavy object coming to rest, not an abrupt stop.
  */
 const premiumEasing = (t) => {
-  // Bezier-inspired easing: fast start, long smooth tail
-  // This mimics high-end physical scrolling (think Apple trackpad)
-  return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+  // Ultra-smooth bezier-inspired easing: fast start, very long smooth tail
+  // Enhanced for luxury feel - mimics high-end physical scrolling (Apple trackpad)
+  // Higher exponent (12 vs 10) = longer, more gradual deceleration
+  return t === 1 ? 1 : 1 - Math.pow(2, -12 * t);
 };
 
 /**
@@ -55,13 +56,13 @@ const premiumEasing = (t) => {
 export const SCROLL_PRESETS = {
   // Default premium feel - balanced for most portfolios
   PREMIUM: {
-    duration: 1.2,           // Time to reach target (seconds) - higher = more momentum
+    duration: 1.8,           // Time to reach target (seconds) - higher = more momentum & deceleration
     easing: premiumEasing,   // Custom curve for luxury feel
     orientation: 'vertical', // Scroll direction
     gestureOrientation: 'vertical',
     smoothWheel: true,       // Smooth mouse wheel
     smoothTouch: false,      // CRITICAL: Keep false for touch - native feels better
-    wheelMultiplier: 1,      // Wheel sensitivity (1 = native, higher = faster)
+    wheelMultiplier: 0.9,    // Wheel sensitivity (slightly reduced for smoother feel)
     touchMultiplier: 2,      // Touch sensitivity
     infinite: false,         // Infinite scroll (usually false for portfolios)
     autoResize: true,        // Auto-handle resize events

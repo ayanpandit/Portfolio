@@ -3,10 +3,12 @@
  * 
  * Architecture notes:
  * - SmoothScrollProvider is in main.jsx (root level)
+ * - BrowserRouter wraps the app for SEO-friendly routing
  * - This component can use useSmoothScroll() for scroll control
  * - All anchor links should use scrollTo() for smooth navigation
  */
 
+import { Routes, Route } from "react-router-dom";
 import Hero from "./components/hero";
 import Tech_stack from "./components/tech_stack";
 import About from "./components/about";
@@ -17,10 +19,12 @@ import Testimonials from "./components/testimonials";
 import FAQComponent from "./components/faq";
 import Footer from "./components/footer";
 import StarryBackground from "./components/hero_background";
+import Project1 from "./components/project1";
 import { useSmoothScroll } from "./context/SmoothScrollContext";
 import { useEffect } from "react";
 
-function App() {
+// Home Page Component with all sections
+function HomePage() {
   const { scrollTo, isReady } = useSmoothScroll();
 
   /**
@@ -104,6 +108,20 @@ function App() {
         </section>
       </div>
     </>
+  );
+}
+
+// Main App with Routes
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/project/1" element={<Project1 />} />
+      <Route path="/project/2" element={<Project1 />} />
+      <Route path="/project/3" element={<Project1 />} />
+      <Route path="/project/4" element={<Project1 />} />
+      <Route path="/project/5" element={<Project1 />} />
+    </Routes>
   );
 }
 

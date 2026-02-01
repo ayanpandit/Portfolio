@@ -35,13 +35,12 @@ const Footer = () => {
             {/* Navigation */}
             <nav className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-10 md:mt-12 mb-10 sm:mb-12 md:mb-16">
               {navLinks.map((link) => (
-                <a
+                <span
                   key={link}
-                  href="#"
-                  className="text-white hover:text-gray-400 transition-colors text-sm sm:text-base"
+                  className="text-white hover:text-gray-400 transition-colors text-sm sm:text-base cursor-pointer"
                 >
                   {link}
-                </a>
+                </span>
               ))}
             </nav>
 
