@@ -130,7 +130,7 @@ const Hero = () => {
 
       {/* Hero PNG Image - Positioned at top/center with Fade Effect */}
       <motion.div 
-        className="absolute left-1/2 top-0 -translate-x-1/2 z-5 w-full h-full flex items-start justify-center pt-16"
+        className="absolute left-1/2 top-0 -translate-x-[48%] z-5 w-full h-full flex items-start justify-center pt-16"
       >
         <motion.img
           src={heroImage}

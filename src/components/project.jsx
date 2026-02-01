@@ -1,9 +1,9 @@
 import React from 'react';
-import projectImage from '../assets/project1.png';
-import allfilechangerImage from '../assets/project2.png';
-import smartstockImage from '../assets/project3.png';
-import splitilyImage from '../assets/project4.png';
-import appuiImage from '../assets/project5.png';
+import projectImage from '../assets/project1.svg';
+import allfilechangerImage from '../assets/project2.svg';
+import smartstockImage from '../assets/project3.svg';
+import splitilyImage from '../assets/project4.svg';
+import appuiImage from '../assets/project5.svg';
 
 
 export default function Projects() {
