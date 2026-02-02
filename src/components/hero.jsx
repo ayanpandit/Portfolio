@@ -27,12 +27,12 @@ const Hero = () => {
         {/* Logo */}
         <motion.div 
           className="text-white text-3xl md:text-4xl italic" 
-          style={{ fontFamily: 'Brush Script MT, cursive' }}
+          style={{ fontFamily: 'Dancing Script, cursive' }}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          AYAN
+          AYAN PANDEY
         </motion.div>
 
         {/* Hamburger Menu Button */}
@@ -190,7 +190,7 @@ const Hero = () => {
       </motion.div>
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@100..400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cookie&family=Dancing+Script:wght@400..700&family=Playwrite+NZ+Basic:wght@100..400&display=swap');
         .playwrite-nz-basic {
           font-family: "Playwrite NZ Basic", cursive;
           font-optical-sizing: auto;

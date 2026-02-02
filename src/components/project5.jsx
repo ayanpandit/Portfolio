@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import StarryBackground from './hero_background';
 import projectMainImage from '../assets/project5.svg';
-import projectChallengeImage from '../assets/project5.svg';
+import projectChallengeImage from '../assets/project5_2.svg';
 import project1Image from '../assets/project1.svg';
 import project4Image from '../assets/project4.svg';
 import Footer from './footer';
@@ -19,7 +19,7 @@ export default function Project5() {
     return (
         <div className="relative min-h-screen text-white playwrite-nz-basic">
             <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@100..400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cookie&family=Dancing+Script:wght@400..700&family=Playwrite+NZ+Basic:wght@100..400&display=swap');
         .playwrite-nz-basic {
           font-family: "Playwrite NZ Basic", cursive;
           font-optical-sizing: auto;
@@ -38,7 +38,7 @@ export default function Project5() {
                 {/* Logo */}
                 <motion.div
                     className="text-white text-3xl md:text-4xl italic cursor-pointer"
-                    style={{ fontFamily: 'Brush Script MT, cursive' }}
+                    style={{ fontFamily: 'Dancing Script, cursive' }}
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
@@ -170,7 +170,7 @@ export default function Project5() {
                     >
                         <button
                             type="button"
-                            onClick={() => window.open('https://appui-demo.onrender.com/', '_blank', 'noopener,noreferrer')}
+                            onClick={() => window.open('https://appui.onrender.com/#/', '_blank', 'noopener,noreferrer')}
                             className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-[13px] sm:text-[14px] md:text-[15px] text-gray-300 font-light transition-colors hover:bg-white/10 focus:outline-none"
                         >
                             Live Preview

@@ -58,13 +58,18 @@ export default function Projects() {
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8 md:py-12 lg:py-16">
         {/* Header with line */}
         <div className="mb-8 md:mb-10 lg:mb-12">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4 md:gap-6 lg:gap-8 flex-1">
-              <h1 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-light tracking-tight whitespace-nowrap">
-                Projects
-              </h1>
-              <div className="flex-1 h-[1px] bg-white"></div>
-            </div>
+          <div className="flex items-center gap-4 md:gap-6 lg:gap-8 mb-2">
+            <h1 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-light tracking-tight whitespace-nowrap">
+              Projects
+            </h1>
+            <div className="flex-1 h-[1px] bg-white"></div>
+            <button
+              type="button"
+              className="text-white text-[13px] sm:text-[14px] md:text-[15px] font-light hover:underline bg-transparent border-none cursor-pointer ml-2"
+              onClick={() => navigate('/allproject')}
+            >
+              See all
+            </button>
           </div>
         </div>
 

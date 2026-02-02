@@ -19,7 +19,7 @@ export default function Project1() {
     return (
         <div className="relative min-h-screen text-white playwrite-nz-basic">
             <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@100..400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cookie&family=Dancing+Script:wght@400..700&family=Playwrite+NZ+Basic:wght@100..400&display=swap');
         .playwrite-nz-basic {
           font-family: "Playwrite NZ Basic", cursive;
           font-optical-sizing: auto;
@@ -38,7 +38,7 @@ export default function Project1() {
                 {/* Logo */}
                 <motion.div
                     className="text-white text-3xl md:text-4xl italic cursor-pointer"
-                    style={{ fontFamily: 'Brush Script MT, cursive' }}
+                    style={{ fontFamily: 'Dancing Script, cursive' }}
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
@@ -327,20 +327,26 @@ export default function Project1() {
                         </button>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        {/* Project 2 */}
-                        <div className="bg-[#f6e97b]/30 rounded-[24px] overflow-hidden flex flex-col items-center p-6">
+                        {/* Project 2 - AllFileChanger */}
+                        <div 
+                            className="bg-[#f6e97b]/30 rounded-[24px] overflow-hidden flex flex-col items-center p-6 cursor-pointer hover:scale-[1.02] transition-transform"
+                            onClick={() => navigate('/project/2')}
+                        >
                             <div className="w-full aspect-[16/9] rounded-[16px] overflow-hidden mb-6 border border-white/10">
-                                <img src={project2Image} alt="Didasko" className="w-full h-full object-cover" />
+                                <img src={project2Image} alt="AllFileChanger" className="w-full h-full object-cover" />
                             </div>
                             <div className="w-full flex flex-col items-start">
                                 <span className="text-[20px] sm:text-[24px] md:text-[28px] font-light mb-1" style={{ fontFamily: 'serif' }}>AllFileChanger</span>
                                 <span className="text-gray-400 text-[13px] sm:text-[14px] md:text-[15px] font-light">2025</span>
                             </div>
                         </div>
-                        {/* Project 3 */}
-                        <div className="bg-white/10 rounded-[24px] overflow-hidden flex flex-col items-center p-6">
+                        {/* Project 3 - SmartStock */}
+                        <div 
+                            className="bg-white/10 rounded-[24px] overflow-hidden flex flex-col items-center p-6 cursor-pointer hover:scale-[1.02] transition-transform"
+                            onClick={() => navigate('/project/3')}
+                        >
                             <div className="w-full aspect-[16/9] rounded-[16px] overflow-hidden mb-6 border border-white/10">
-                                <img src={project3Image} alt="Harmonix" className="w-full h-full object-cover" />
+                                <img src={project3Image} alt="SmartStock" className="w-full h-full object-cover" />
                             </div>
                             <div className="w-full flex flex-col items-start">
                                 <span className="text-[20px] sm:text-[24px] md:text-[28px] font-light mb-1" style={{ fontFamily: 'serif' }}>SmartStock</span>

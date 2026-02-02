@@ -92,34 +92,17 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 }
 
 /**
- * Custom Scrollbar - Premium Aesthetic
+ * Scrollbar Hiding - Clean UI
  * 
- * Matches dark theme portfolio aesthetic.
- * Consider hiding completely for ultra-clean look:
- * ::-webkit-scrollbar { width: 0; height: 0; }
+ * Hide all scrollbars across the website for a clean look
  */
 ::-webkit-scrollbar {
-  width: 8px; /* Slightly thinner = more premium */
+  display: none;
 }
 
-::-webkit-scrollbar-track {
-  background: #000000;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #1a1a1a;
-  border-radius: 4px;
-  border: 2px solid #000000; /* Creates inset effect */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #333333;
-}
-
-/* Firefox scrollbar styling */
+/* Firefox scrollbar hiding */
 * {
-  scrollbar-width: thin;
-  scrollbar-color: #1a1a1a #000000;
+  scrollbar-width: none;
 }
 
 /**

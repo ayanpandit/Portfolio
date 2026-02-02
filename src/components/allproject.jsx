@@ -5,6 +5,7 @@ import allfilechangerImage from '../assets/project2.svg';
 import smartstockImage from '../assets/project3.svg';
 import splitilyImage from '../assets/project4.svg';
 import appuiImage from '../assets/project5.svg';
+import Footer from './footer';
 
 
 export default function AllProject() {
@@ -114,6 +115,9 @@ export default function AllProject() {
           ))}
         </div>
       </div>
+      
+      {/* Footer */}
+      <Footer />
     </div>
     
   );

@@ -5,7 +5,7 @@ import { Plus } from 'lucide-react';
 const FAQItem = ({ number, question, answer, isOpen, onClick, index }) => {
   return (
     <motion.div 
-      className="border-b border-gray-800"
+      className="border-b border-gray-800 mb-6"
       initial={{ opacity: 0, x: -30 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -13,29 +13,29 @@ const FAQItem = ({ number, question, answer, isOpen, onClick, index }) => {
     >
       <button
         onClick={onClick}
-        className="w-full flex items-center justify-between py-4 sm:py-5 md:py-6 text-left hover:opacity-80 transition-opacity"
+        className="w-full flex items-center justify-between py-6 sm:py-8 md:py-10 text-left hover:opacity-80 transition-opacity"
         aria-expanded={isOpen}
       >
         <div className="flex items-start gap-3 sm:gap-5 md:gap-8">
-          <span className="text-gray-500 text-xs sm:text-sm md:text-base font-light min-w-[32px] sm:min-w-[38px] md:min-w-[45px]">{number}</span>
-          <h3 className="text-white text-base sm:text-xl md:text-[28px] font-light tracking-tight leading-tight">{question}</h3>
+          <span className="text-gray-500 text-xs sm:text-xs md:text-sm font-light min-w-[32px] sm:min-w-[38px] md:min-w-[45px]">{number}</span>
+          <h3 className="text-white text-xs sm:text-sm md:text-base font-light tracking-tight leading-relaxed" style={{lineHeight: '2'}}>{question}</h3>
         </div>
         <Plus 
           className={`text-white flex-shrink-0 transition-transform duration-300 ml-3 sm:ml-5 md:ml-8 ${isOpen ? 'rotate-45' : ''}`} 
-          size={20}
+          size={18}
         />
       </button>
       <div
         className="overflow-hidden transition-all duration-500 ease-in-out"
         style={{
-          maxHeight: isOpen ? 200 : 0,
+          maxHeight: isOpen ? 300 : 0,
           opacity: isOpen ? 1 : 0,
-          paddingBottom: isOpen ? 24 : 0,
+          paddingBottom: isOpen ? 36 : 0,
           paddingLeft: 50,
         }}
       >
-        <div className="text-gray-400 text-sm sm:text-base md:text-lg font-light pl-1 sm:pl-2 md:pl-[35px]" style={{transition: 'opacity 0.5s, transform 0.5s', transform: isOpen ? 'translateY(0)' : 'translateY(-10px)'}}>
-          {isOpen && <p>{answer}</p>}
+        <div className="text-gray-400 text-xs sm:text-sm md:text-base font-light pl-1 sm:pl-2 md:pl-[35px] leading-relaxed" style={{transition: 'opacity 0.5s, transform 0.5s', transform: isOpen ? 'translateY(0)' : 'translateY(-10px)', lineHeight: '2.1'}}>
+          {isOpen && <p className="leading-relaxed" style={{lineHeight: '2.1'}}>{answer}</p>}
         </div>
       </div>
     </motion.div>
