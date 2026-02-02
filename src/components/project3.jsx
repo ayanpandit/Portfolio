@@ -44,7 +44,7 @@ export default function Project3() {
                     transition={{ duration: 0.8 }}
                     onClick={() => navigate('/')}
                 >
-                    AYAN
+                    AYAN PANDEY
                 </motion.div>
 
                 {/* Hamburger Menu Button */}

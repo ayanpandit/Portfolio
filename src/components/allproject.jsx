@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import StarryBackground from './hero_background';
 import projectImage from '../assets/project1.svg';
 import allfilechangerImage from '../assets/project2.svg';
 import smartstockImage from '../assets/project3.svg';
@@ -10,6 +12,11 @@ import Footer from './footer';
 
 export default function AllProject() {
   const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
   
   const projects = [
     {
@@ -45,9 +52,9 @@ export default function AllProject() {
   ];
 
   return (
-    <div className="min-h-screen text-white font-sans playwrite-nz-basic">
+    <div className="relative min-h-screen text-white playwrite-nz-basic">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@100..400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cookie&family=Dancing+Script:wght@400..700&family=Playwrite+NZ+Basic:wght@100..400&display=swap');
         .playwrite-nz-basic {
           font-family: "Playwrite NZ Basic", cursive;
           font-optical-sizing: auto;
@@ -55,20 +62,118 @@ export default function AllProject() {
           font-style: normal;
         }
       `}</style>
-      
-      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8 md:py-12 lg:py-16">
-        {/* New Centered Heading and Subtext */}
-        <div className="mb-8 md:mb-10 lg:mb-12 flex flex-col items-center text-center">
-          <h1 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-light tracking-tight mb-3" style={{ fontFamily: 'serif' }}>
-            Project
-          </h1>
-          <p className="text-gray-300 text-[15px] sm:text-[17px] md:text-[19px] max-w-2xl font-light">
-            A curated collection of my recent work, where creative thinking meets technical precision.
-          </p>
-        </div>
 
-        {/* Projects - Full width cards */}
-        <div className="flex flex-col gap-10 sm:gap-14 md:gap-16 lg:gap-20">
+      {/* Fixed Starry Background */}
+      <div className="fixed inset-0 z-0 bg-black">
+        <StarryBackground />
+      </div>
+
+      {/* Header - Same as other project pages */}
+      <header className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-8 md:px-16 py-8">
+        {/* Logo */}
+        <motion.div
+          className="text-white text-3xl md:text-4xl italic cursor-pointer"
+          style={{ fontFamily: 'Dancing Script, cursive' }}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          onClick={() => navigate('/')}
+        >
+          AYAN PANDEY
+        </motion.div>
+
+        {/* Hamburger Menu Button */}
+        <button
+          onClick={toggleMenu}
+          className="flex flex-col gap-2 group relative z-50 w-10 h-10 justify-center items-center"
+          aria-label="Toggle menu"
+        >
+          <span
+            className={`w-8 h-0.5 bg-white transition-all duration-300 ${
+              isMenuOpen ? 'rotate-45 translate-y-2.5' : 'group-hover:w-10'
+            }`}
+          ></span>
+          <span
+            className={`w-8 h-0.5 bg-white transition-all duration-300 ${
+              isMenuOpen ? 'opacity-0' : 'group-hover:w-10'
+            }`}
+          ></span>
+          <span
+            className={`w-8 h-0.5 bg-white transition-all duration-300 ${
+              isMenuOpen ? '-rotate-45 -translate-y-2.5' : 'group-hover:w-10'
+            }`}
+          ></span>
+        </button>
+      </header>
+
+      {/* Brown Panel - Slides down to 75% of screen */}
+      <div
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-700 ease-in-out ${
+          isMenuOpen ? 'h-[75vh]' : 'h-0'
+        } overflow-hidden`}
+        style={{ backgroundColor: '#8B4513' }}
+      >
+        {/* Navigation Menu Items */}
+        <nav className="flex flex-col items-start justify-center h-full px-8 md:px-16 gap-4 pt-20 w-full">
+          <button
+            type="button"
+            className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden hover:scale-110 focus:scale-110 origin-center bg-transparent border-none cursor-pointer text-left"
+            style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}
+            onClick={() => { toggleMenu(); navigate('/'); }}
+          >
+            <span>Home</span>
+            <span className="ml-4 h-0.5 bg-white flex-grow scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
+          </button>
+          <button
+            type="button"
+            className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden hover:scale-110 focus:scale-110 origin-center bg-transparent border-none cursor-pointer text-left"
+            style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}
+            onClick={() => { toggleMenu(); navigate('/'); }}
+          >
+            <span>Services</span>
+            <span className="ml-4 h-0.5 bg-white flex-grow scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
+          </button>
+          <button
+            type="button"
+            className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden hover:scale-110 focus:scale-110 origin-center bg-transparent border-none cursor-pointer text-left"
+            style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}
+            onClick={() => { toggleMenu(); navigate('/'); }}
+          >
+            <span>Projects</span>
+            <span className="ml-4 h-0.5 bg-white flex-grow scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
+          </button>
+          <button
+            type="button"
+            className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden hover:scale-110 focus:scale-110 origin-center bg-transparent border-none cursor-pointer text-left"
+            style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}
+            onClick={() => { toggleMenu(); navigate('/'); }}
+          >
+            <span>Get in touch</span>
+            <span className="ml-4 h-0.5 bg-white flex-grow scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
+          </button>
+        </nav>
+      </div>
+
+      {/* Blur overlay when menu is open */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 z-30 backdrop-blur-md bg-black/30 transition-all duration-500" />
+      )}
+
+      {/* Scrollable Content */}
+      <div className="relative z-10 pt-28 sm:pt-32 md:pt-36">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8 md:py-12 lg:py-16">
+          {/* New Centered Heading and Subtext */}
+          <div className="mb-8 md:mb-10 lg:mb-12 flex flex-col items-center text-center">
+            <h1 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-light tracking-tight mb-3" style={{ fontFamily: 'serif' }}>
+              Project
+            </h1>
+            <p className="text-gray-300 text-[15px] sm:text-[17px] md:text-[19px] max-w-2xl font-light">
+              A curated collection of my recent work, where creative thinking meets technical precision.
+            </p>
+          </div>
+
+          {/* Projects - Full width cards */}
+          <div className="flex flex-col gap-10 sm:gap-14 md:gap-16 lg:gap-20">
           {projects.map((project, index) => (
             <div key={index} className="group">
               {/* Single card with project image */}
@@ -113,6 +218,7 @@ export default function AllProject() {
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
       
