@@ -130,7 +130,7 @@ const Hero = () => {
       >
         <motion.img
           src={heroImage}
-          alt="Hero"
+          alt="Ayan Pandey - Full Stack Developer"
           className="w-auto h-[55%] sm:h-[60%] md:h-2/3 object-contain"
           style={{
             maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%)',
@@ -149,15 +149,16 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
       >
+        {/* SEO-optimized H1 with name prominence */}
         <h1 className="text-white text-center mb-4 w-full max-w-7xl">
-          <div className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl mb-2" style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}>
-            I'm Ayan,
-          </div>
+          <span className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl mb-2 block" style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}>
+            I'm <strong>Ayan Pandey</strong>,
+          </span>
 
           {/* RotatingText Component */}
-          <div className="flex items-center justify-center w-full">
+          <span className="flex items-center justify-center w-full" aria-label="Full Stack Developer and Web Designer">
             <RotatingText
-              texts={['WEB DESIGNER.', 'WEB DEVELOPER.']}
+              texts={['FULL STACK DEVELOPER.', 'WEB DESIGNER.']}
               mainClassName="px-2 sm:px-2 md:px-3 text-2xl sm:text-3xl md:text-5xl lg:text-7xl tracking-wider overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
               staggerFrom="last"
               initial={{ y: "100%" }}
@@ -169,7 +170,7 @@ const Hero = () => {
               rotationInterval={2000}
               style={{ fontFamily: 'Anton, Oswald, Chela One, Norican, Pompiere, Varela Round, sans-serif', color: '#808080' }}
             />
-          </div>
+          </span>
         </h1>
 
         {/* CTA Buttons */}

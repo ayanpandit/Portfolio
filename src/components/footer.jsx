@@ -84,7 +84,7 @@ const Footer = () => {
 
             {/* Copyright */}
             <p className="text-gray-500 text-xs sm:text-sm">
-              © 2025 Ayan All rights reserved.
+              © 2026 <strong>Ayan Pandey</strong>. All rights reserved.
             </p>
 
             {/* Social Icons */}
@@ -148,7 +148,7 @@ const Footer = () => {
             <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mb-5 sm:mb-6 md:mb-8 flex-shrink-0">
               <img
                 src={footerImage}
-                alt="Profile"
+                alt="Ayan Pandey - Full Stack Developer"
                 loading="lazy"
                 decoding="async"
                 width={192}

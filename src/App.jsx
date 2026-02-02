@@ -23,7 +23,6 @@ import Services from "./components/services";
 import Projects from "./components/project";
 import Footer from "./components/footer";
 import StarryBackground from "./components/hero_background";
-import CustomCursor from "./components/CustomCursor";
 import { useSmoothScroll } from "./context/SmoothScrollContext";
 
 // Lazy loaded components - loaded on demand
@@ -201,7 +200,6 @@ const MemoizedHomePage = memo(HomePage);
 function App() {
   return (
     <>
-      <CustomCursor />
       <ScrollToTop />
       <Suspense fallback={<LoadingFallback />}>
         <Routes>

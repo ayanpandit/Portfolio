@@ -1,39 +1,67 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, memo } from 'react';
 
-const StarryBackground = () => {
+const StarryBackground = memo(() => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { alpha: false });
     let animationFrameId;
+    let lastTime = 0;
+    const FPS = 30; // Limit FPS for better performance
+    const frameInterval = 1000 / FPS;
     
-    // Set canvas size
+    // Set canvas size with device pixel ratio for crisp rendering
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2); // Cap at 2x for performance
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      ctx.scale(dpr, dpr);
     };
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    
+    // Debounced resize handler
+    let resizeTimeout;
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(resizeCanvas, 150);
+    };
+    window.addEventListener('resize', handleResize, { passive: true });
 
+    // Reduce star count for better performance
+    const starCount = Math.min(100, Math.floor((window.innerWidth * window.innerHeight) / 15000));
+    
     // Create stars
-    const stars = Array.from({ length: 150 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      radius: Math.random() * 1.5,
-      opacity: Math.random() * 0.5 + 0.3,
-      speed: Math.random() * 0.2 + 0.05,
-      twinkle: Math.random() * 0.02
+    const stars = Array.from({ length: starCount }, () => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      radius: Math.random() * 1.2 + 0.3,
+      opacity: Math.random() * 0.4 + 0.3,
+      speed: Math.random() * 0.15 + 0.03,
+      twinkle: Math.random() * 0.015
     }));
 
-    // Animation loop
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Animation loop with FPS limiting
+    const animate = (currentTime) => {
+      animationFrameId = requestAnimationFrame(animate);
       
-      stars.forEach(star => {
+      const delta = currentTime - lastTime;
+      if (delta < frameInterval) return;
+      lastTime = currentTime - (delta % frameInterval);
+      
+      // Clear with black for better performance (no alpha)
+      ctx.fillStyle = '#000000';
+      ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+      
+      const len = stars.length;
+      for (let i = 0; i < len; i++) {
+        const star = stars[i];
+        
         // Twinkling effect
         star.opacity += star.twinkle;
-        if (star.opacity > 0.8 || star.opacity < 0.2) {
+        if (star.opacity > 0.7 || star.opacity < 0.25) {
           star.twinkle *= -1;
         }
 
@@ -44,25 +72,34 @@ const StarryBackground = () => {
 
         // Move stars slowly
         star.y += star.speed;
-        if (star.y > canvas.height) {
+        if (star.y > window.innerHeight) {
           star.y = 0;
-          star.x = Math.random() * canvas.width;
+          star.x = Math.random() * window.innerWidth;
         }
-      });
-
-      animationFrameId = requestAnimationFrame(animate);
+      }
     };
-    animate();
+    
+    animationFrameId = requestAnimationFrame(animate);
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(resizeTimeout);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
   return (
-    <canvas ref={canvasRef} className="w-full h-full" />
+    <canvas 
+      ref={canvasRef} 
+      className="w-full h-full"
+      style={{ 
+        willChange: 'auto',
+        contain: 'strict'
+      }}
+    />
   );
-};
+});
+
+StarryBackground.displayName = 'StarryBackground';
 
 export default StarryBackground;

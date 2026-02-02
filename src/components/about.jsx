@@ -30,9 +30,9 @@ export default function About() {
         {/* Header with line */}
         <div className="mb-8 md:mb-12 lg:mb-16">
           <div className="flex items-center gap-4 md:gap-6 lg:gap-8">
-            <h1 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-light tracking-tight playwrite-nz-basic">
-              About
-            </h1>
+            <h2 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-light tracking-tight playwrite-nz-basic">
+              About Ayan Pandey
+            </h2>
             <div className="flex-1 h-[1px] bg-white"></div>
           </div>
         </div>
@@ -52,7 +52,7 @@ export default function About() {
           <div className="space-y-6 md:space-y-8 lg:space-y-10">
             {/* Description */}
             <p className="text-[13px] sm:text-[14px] md:text-[15px] leading-[1.7] text-gray-400 font-light">
-              I’m Ayan, a full-stack developer who builds end-to-end web applications with a focus on structure, performance, and usability. I work across the stack—crafting responsive front-end interfaces, developing reliable back-end services, and integrating databases and APIs to deliver scalable solutions. My workflow is centered on clean architecture, version-controlled code, and well-defined systems that remain easy to maintain and extend.
+              I'm <strong>Ayan Pandey</strong>, a full-stack developer who builds end-to-end web applications with a focus on structure, performance, and usability. I work across the stack—crafting responsive front-end interfaces with React, developing reliable back-end services with Node.js, and integrating databases and APIs to deliver scalable solutions. My workflow is centered on clean architecture, version-controlled code, and well-defined systems that remain easy to maintain and extend.
 
               Every project begins with understanding the problem and defining the system before writing code. I plan features, data flow, and application structure to ensure efficiency and clarity throughout development. The result is a production-ready application that balances speed, functionality, and simplicity, built to scale and deliver consistent value.</p>
 

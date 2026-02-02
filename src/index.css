@@ -150,83 +150,19 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 
 /**
  * ============================================
- * CUSTOM CURSOR STYLES
+ * PERFORMANCE OPTIMIZATIONS
  * ============================================
- * 
- * Premium cursor with easing, hover effects, and GPU acceleration
  */
 
-/* Hide default cursor globally - more aggressive rules */
-html, 
-body, 
-*,
-*::before,
-*::after {
-  cursor: none !important;
+/* GPU-accelerated animations for smoother performance */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
-/* Force cursor none on all interactive elements */
-a, button, input, textarea, select, label, [role="button"] {
-  cursor: none !important;
-}
-
-/* Re-enable cursor on touch devices via media query */
-@media (pointer: coarse), (hover: none) {
-  html, body, * {
-    cursor: auto !important;
-  }
-  
-  .custom-cursor {
-    display: none !important;
-  }
-}
-
-/* Custom cursor base styles */
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 32px;
-  height: 32px;
-  pointer-events: none;
-  z-index: 99999;
-  opacity: 0;
-  will-change: transform, opacity;
-  /* Offset to center the cursor on the pointer */
-  margin-left: -16px;
-  margin-top: -16px;
-  /* Fast opacity transition */
-  transition: opacity 0.1s ease-out;
-  /* Start off-screen to prevent flash at 0,0 */
-  transform: translate3d(-100px, -100px, 0);
-}
-
-/* Hover state - subtle scale */
-.custom-cursor--hover {
-  transform: scale(1.2) !important;
-}
-
-.custom-cursor--hover .custom-cursor__icon {
-  opacity: 0.75;
-}
-
-/* Cursor icon */
-.custom-cursor__icon {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  transition: opacity 0.15s ease-out;
-  /* Invert colors for visibility on dark background */
-  filter: invert(1);
-}
-
-/* Reduced motion support - disable cursor animation */
-@media (prefers-reduced-motion: reduce) {
-  .custom-cursor {
-    display: none !important;
-  }
-  
-  html, body, * {
-    cursor: auto !important;
-  }
+/* Reduce paint areas for frequently animated elements */
+.paint-optimized {
+  contain: layout style paint;
+  content-visibility: auto;
 }
