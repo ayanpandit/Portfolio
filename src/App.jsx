@@ -5,27 +5,44 @@
  * - "/" : Home page with all sections
  * - "/allproject" : All projects listing page
  * - "/project/:id" : Individual project pages
+ * 
+ * PERFORMANCE OPTIMIZATIONS:
+ * - Lazy loading for non-critical routes
+ * - Code splitting for faster initial load
+ * - Suspense boundaries for smooth loading
  */
 
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect, lazy, Suspense, memo } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+
+// Critical path - loaded immediately for home page
 import Hero from "./components/hero";
 import Tech_stack from "./components/tech_stack";
 import About from "./components/about";
 import Services from "./components/services";
 import Projects from "./components/project";
-import Certifications from "./components/certificaation";
-import Testimonials from "./components/testimonials";
-import FAQComponent from "./components/faq";
 import Footer from "./components/footer";
 import StarryBackground from "./components/hero_background";
-import Project1 from "./components/project1";
-import Project2 from "./components/project2";
-import Project3 from "./components/project3";
-import Project4 from "./components/project4";
-import Project5 from "./components/project5";
-import AllProject from "./components/allproject";
+import CustomCursor from "./components/CustomCursor";
 import { useSmoothScroll } from "./context/SmoothScrollContext";
+
+// Lazy loaded components - loaded on demand
+const Certifications = lazy(() => import("./components/certificaation"));
+const Testimonials = lazy(() => import("./components/testimonials"));
+const FAQComponent = lazy(() => import("./components/faq"));
+const Project1 = lazy(() => import("./components/project1"));
+const Project2 = lazy(() => import("./components/project2"));
+const Project3 = lazy(() => import("./components/project3"));
+const Project4 = lazy(() => import("./components/project4"));
+const Project5 = lazy(() => import("./components/project5"));
+const AllProject = lazy(() => import("./components/allproject"));
+
+// Minimal loading fallback - invisible to prevent layout shift
+const LoadingFallback = () => (
+  <div className="min-h-[200px] flex items-center justify-center">
+    <div className="w-8 h-8 border-2 border-white/20 border-t-white/80 rounded-full animate-spin" />
+  </div>
+);
 
 /**
  * ScrollToTop - Resets scroll position on every route change
@@ -152,15 +169,21 @@ function HomePage() {
         </section>
         
         <section data-scroll-section>
-          <Certifications />
+          <Suspense fallback={<LoadingFallback />}>
+            <Certifications />
+          </Suspense>
         </section>
         
         <section data-scroll-section>
-          <Testimonials />
+          <Suspense fallback={<LoadingFallback />}>
+            <Testimonials />
+          </Suspense>
         </section>
         
         <section data-scroll-section>
-          <FAQComponent />
+          <Suspense fallback={<LoadingFallback />}>
+            <FAQComponent />
+          </Suspense>
         </section>
         
         <section id="footer" data-scroll-section>
@@ -171,20 +194,26 @@ function HomePage() {
   );
 }
 
-// Main App with Routes
+// Memoize HomePage to prevent unnecessary re-renders
+const MemoizedHomePage = memo(HomePage);
+
+// Main App with Routes - Suspense wraps lazy-loaded routes
 function App() {
   return (
     <>
+      <CustomCursor />
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/allproject" element={<AllProject />} />
-        <Route path="/project/1" element={<Project1 />} />
-        <Route path="/project/2" element={<Project2 />} />
-        <Route path="/project/3" element={<Project3 />} />
-        <Route path="/project/4" element={<Project4 />} />
-        <Route path="/project/5" element={<Project5 />} />
-      </Routes>
+      <Suspense fallback={<LoadingFallback />}>
+        <Routes>
+          <Route path="/" element={<MemoizedHomePage />} />
+          <Route path="/allproject" element={<AllProject />} />
+          <Route path="/project/1" element={<Project1 />} />
+          <Route path="/project/2" element={<Project2 />} />
+          <Route path="/project/3" element={<Project3 />} />
+          <Route path="/project/4" element={<Project4 />} />
+          <Route path="/project/5" element={<Project5 />} />
+        </Routes>
+      </Suspense>
     </>
   );
 }

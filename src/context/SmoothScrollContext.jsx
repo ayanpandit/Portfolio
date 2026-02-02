@@ -27,17 +27,25 @@ gsap.registerPlugin(ScrollTrigger);
 const SmoothScrollContext = createContext(null);
 
 /**
- * Premium easing - exponential decay for luxury momentum
+ * Ultra-premium easing - custom bezier-like curve for luxury momentum
  * 
- * Mathematical breakdown:
- * - At t=0: returns 0 (start position)
- * - At t=0.5: returns ~0.97 (most travel done quickly)
- * - At t=1: returns 1 (end position)
- * 
- * This creates the "fast response, long settle" feel
+ * This creates the signature "Apple/Framer" smooth feel:
+ * - Quick initial response (no lag feeling)
+ * - Long, elegant deceleration
+ * - Silky smooth finish with no abrupt stop
  */
 const premiumEasing = (t) => {
-  return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+  // Custom easing: quick start, very long elegant tail
+  return 1 - Math.pow(1 - t, 5);
+};
+
+/**
+ * Alternative: Even smoother for scroll-to animations
+ */
+const ultraSmoothEasing = (t) => {
+  // Quintic ease-out with extended tail
+  const c = 1 - t;
+  return 1 - c * c * c * c * c;
 };
 
 /**
@@ -65,19 +73,19 @@ const premiumEasing = (t) => {
  *   - TRUE only for horizontal scroll galleries or special interactions
  */
 const DEFAULT_CONFIG = {
-  duration: 1.2,
+  duration: 1.4,           // Slightly longer for more luxurious feel
   easing: premiumEasing,
   orientation: 'vertical',
   gestureOrientation: 'vertical',
   smoothWheel: true,
-  smoothTouch: false,      // Native touch is better for most cases
-  wheelMultiplier: 1,
-  touchMultiplier: 2,
+  smoothTouch: false,      // Native touch is better for performance
+  wheelMultiplier: 0.9,    // Slightly reduced for more control
+  touchMultiplier: 1.8,    // Optimized for mobile
   infinite: false,
   autoResize: true,
-  // Wrapper/content - leave undefined to use document
-  // wrapper: window,
-  // content: document.documentElement,
+  lerp: 0.08,              // Lower lerp = smoother interpolation
+  syncTouch: false,        // Keep native touch momentum
+  syncTouchLerp: 0.075,    // Smooth touch sync if enabled
 };
 
 export function SmoothScrollProvider({ 
@@ -243,8 +251,8 @@ export function SmoothScrollProvider({
 
     lenisRef.current.scrollTo(target, {
       offset: 0,
-      duration: 1.2,
-      easing: premiumEasing,
+      duration: 1.4,
+      easing: ultraSmoothEasing,
       immediate: false,
       lock: false,
       ...scrollOptions,

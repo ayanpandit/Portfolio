@@ -45,7 +45,16 @@ const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-24 items-start">
           {/* Left side - Brand and description */}
           <div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif italic mb-4 sm:mb-5 md:mb-6">Ayan</h2>
+            <h2
+              className="text-3xl sm:text-4xl md:text-5xl font-serif italic mb-4 sm:mb-5 md:mb-6 cursor-pointer hover:text-gray-400 transition-colors"
+              onClick={() => navigate('/')}
+              tabIndex={0}
+              role="button"
+              aria-label="Go to home"
+              onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') navigate('/'); }}
+            >
+              Ayan
+            </h2>
             <p className="text-gray-400 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl">
               Transforming bold concepts into intuitive, high impact digital experiences
               that captivate users, amplify brands, and convert exploration into growth.
