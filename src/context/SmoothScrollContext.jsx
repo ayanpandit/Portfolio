@@ -117,6 +117,9 @@ export function SmoothScrollProvider({
     // Initialize Lenis
     const lenis = new Lenis(config);
     lenisRef.current = lenis;
+    
+    // Expose Lenis globally for ScrollToTop component
+    window.__lenis = lenis;
 
     /**
      * Scroll event handler
@@ -208,6 +211,9 @@ export function SmoothScrollProvider({
       if (enableGSAP) {
         ScrollTrigger.clearScrollMemory();
       }
+      
+      // Remove global reference
+      window.__lenis = null;
       
       if (lenisRef.current) {
         lenisRef.current.destroy();

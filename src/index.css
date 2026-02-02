@@ -61,6 +61,11 @@ body {
   min-height: 100%;
   /* Prevent pull-to-refresh on mobile */
   overscroll-behavior-y: none;
+  scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar, html::-webkit-scrollbar {
+  display: none;
 }
 
 /**

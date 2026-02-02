@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import heroImage from '../assets/hero1.png';
+import heroImage from '../assets/hero1.avif';
 import RotatingText from './hero_text_animation';
 
 const Hero = () => {

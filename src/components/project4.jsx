@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import StarryBackground from './hero_background';
+import projectMainImage from '../assets/project4.svg';
+import projectChallengeImage from '../assets/project4.svg';
 import project1Image from '../assets/project1.svg';
-import project1chalangeImage from '../assets/project1_2.svg';
-import project2Image from '../assets/project2.svg';
 import project3Image from '../assets/project3.svg';
 import Footer from './footer';
 
-export default function Project1() {
+export default function Project4() {
     const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -54,24 +54,20 @@ export default function Project1() {
                     aria-label="Toggle menu"
                 >
                     <span
-                        className={`w-8 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2.5' : 'group-hover:w-10'
-                            }`}
+                        className={`w-8 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2.5' : 'group-hover:w-10'}`}
                     ></span>
                     <span
-                        className={`w-8 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'opacity-0' : 'group-hover:w-10'
-                            }`}
+                        className={`w-8 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'opacity-0' : 'group-hover:w-10'}`}
                     ></span>
                     <span
-                        className={`w-8 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2.5' : 'group-hover:w-10'
-                            }`}
+                        className={`w-8 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2.5' : 'group-hover:w-10'}`}
                     ></span>
                 </button>
             </header>
 
             {/* Brown Panel - Slides down to 75% of screen */}
             <div
-                className={`fixed top-0 left-0 right-0 z-40 transition-all duration-700 ease-in-out ${isMenuOpen ? 'h-[75vh]' : 'h-0'
-                    } overflow-hidden`}
+                className={`fixed top-0 left-0 right-0 z-40 transition-all duration-700 ease-in-out ${isMenuOpen ? 'h-[75vh]' : 'h-0'} overflow-hidden`}
                 style={{ backgroundColor: '#8B4513' }}
             >
                 {/* Navigation Menu Items */}
@@ -80,10 +76,7 @@ export default function Project1() {
                         type="button"
                         className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden hover:scale-110 focus:scale-110 origin-center bg-transparent border-none cursor-pointer text-left"
                         style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}
-                        onClick={() => {
-                            toggleMenu();
-                            navigate('/');
-                        }}
+                        onClick={() => { toggleMenu(); navigate('/'); }}
                     >
                         <span>Home</span>
                         <span className="ml-4 h-0.5 bg-white flex-grow scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
@@ -92,10 +85,7 @@ export default function Project1() {
                         type="button"
                         className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden hover:scale-110 focus:scale-110 origin-center bg-transparent border-none cursor-pointer text-left"
                         style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}
-                        onClick={() => {
-                            toggleMenu();
-                            navigate('/');
-                        }}
+                        onClick={() => { toggleMenu(); navigate('/'); }}
                     >
                         <span>Services</span>
                         <span className="ml-4 h-0.5 bg-white flex-grow scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
@@ -104,10 +94,7 @@ export default function Project1() {
                         type="button"
                         className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden hover:scale-110 focus:scale-110 origin-center bg-transparent border-none cursor-pointer text-left"
                         style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}
-                        onClick={() => {
-                            toggleMenu();
-                            navigate('/');
-                        }}
+                        onClick={() => { toggleMenu(); navigate('/'); }}
                     >
                         <span>Projects</span>
                         <span className="ml-4 h-0.5 bg-white flex-grow scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
@@ -116,10 +103,7 @@ export default function Project1() {
                         type="button"
                         className="group relative text-white text-4xl md:text-5xl lg:text-6xl font-light tracking-wide transition-all duration-300 flex items-center w-full overflow-hidden hover:scale-110 focus:scale-110 origin-center bg-transparent border-none cursor-pointer text-left"
                         style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}
-                        onClick={() => {
-                            toggleMenu();
-                            navigate('/');
-                        }}
+                        onClick={() => { toggleMenu(); navigate('/'); }}
                     >
                         <span>Get in touch</span>
                         <span className="ml-4 h-0.5 bg-white flex-grow scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
@@ -144,7 +128,6 @@ export default function Project1() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        {/* Curved back arrow */}
                         <svg
                             className="w-4 h-4 sm:w-5 sm:h-5 group-hover:-translate-x-1 transition-transform duration-300"
                             fill="none"
@@ -165,7 +148,7 @@ export default function Project1() {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         style={{ fontFamily: 'serif' }}
                     >
-                        Skillboard
+                        Splitly
                     </motion.h1>
 
                     {/* Project Description */}
@@ -175,7 +158,7 @@ export default function Project1() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
-                       SkillBoard is a web-based comparison platform that allows students to analyze and compare their coding performance across platforms like CodeChef and LeetCode, providing a unified view of individual strengths and progress.
+                        Splitly is a smart expense splitting application that makes it easy for groups to track shared costs, split bills fairly, and settle debts with friends, roommates, or travel companions.
                     </motion.p>
 
                     {/* Tags */}
@@ -186,39 +169,36 @@ export default function Project1() {
                         transition={{ duration: 0.6, delay: 0.3 }}
                     >
                         <button
-                        type="button"
-                        onClick={() => window.open('https://skillboard-nit5.onrender.com/', '_blank', 'noopener,noreferrer')}
-                        className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-[13px] sm:text-[14px] md:text-[15px] text-gray-300 font-light transition-colors hover:bg-white/10 focus:outline-none"
-                    >
-                        Live Preview
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" style={{ transform: 'rotate(315deg)' }}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
-                    </button>
+                            type="button"
+                            onClick={() => window.open('https://splitly-demo.onrender.com/', '_blank', 'noopener,noreferrer')}
+                            className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-[13px] sm:text-[14px] md:text-[15px] text-gray-300 font-light transition-colors hover:bg-white/10 focus:outline-none"
+                        >
+                            Live Preview
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" style={{ transform: 'rotate(315deg)' }}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
                         <span className="px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-[13px] sm:text-[14px] md:text-[15px] text-gray-300 font-light">
-                            2024
+                            2025
                         </span>
                     </motion.div>
                 </div>
 
-                {/* Project Image Section - Same styling as project.jsx */}
+                {/* Project Image Section */}
                 <motion.div
                     className="relative w-full"
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                    {/* Project Image - Full width like project.jsx */}
                     <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
                         <div
                             className="block relative rounded-[16px] sm:rounded-[24px] md:rounded-[32px] overflow-hidden aspect-[16/9] w-full"
-                            style={{
-                                boxShadow: '0 8px 32px rgba(0,0,0,0.3)'
-                            }}
+                            style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.3)' }}
                         >
                             <img
-                                src={project1Image}
-                                alt="Pestorix Project Preview"
+                                src={projectMainImage}
+                                alt="Splitly Project Preview"
                                 className="absolute inset-0 w-full h-full object-cover object-top"
                             />
                         </div>
@@ -228,22 +208,16 @@ export default function Project1() {
                 {/* Mission Section */}
                 <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-20 md:py-24">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20">
-                        {/* Left - Title */}
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6 }}
                             viewport={{ once: true }}
                         >
-                            <h2
-                                className="text-[20px] sm:text-[24px] md:text-[28px] font-light"
-                                style={{ fontFamily: 'serif' }}
-                            >
+                            <h2 className="text-[20px] sm:text-[24px] md:text-[28px] font-light" style={{ fontFamily: 'serif' }}>
                                 Mission
                             </h2>
                         </motion.div>
-
-                        {/* Right - Description */}
                         <motion.div
                             initial={{ opacity: 0, x: 30 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -251,9 +225,7 @@ export default function Project1() {
                             viewport={{ once: true }}
                         >
                             <p className="text-gray-400 text-[13px] sm:text-[14px] md:text-[15px] leading-[1.6] font-light">
-                              The mission of SkillBoard is to help students, institutes, and recruiters evaluate, compare, and rank coding performance by offering a clear and structured comparison of a student’s standing among peers.
-
-
+                                The mission of Splitly is to eliminate the awkwardness and complexity of splitting expenses among groups by providing an intuitive platform that tracks, calculates, and settles shared costs seamlessly.
                             </p>
                         </motion.div>
                     </div>
@@ -261,7 +233,6 @@ export default function Project1() {
 
                 {/* Challenge Section */}
                 <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-20 md:py-24">
-                    {/* Challenge Fullsize Image */}
                     <motion.div
                         className="relative w-full mb-12"
                         initial={{ opacity: 0, y: 40 }}
@@ -274,30 +245,23 @@ export default function Project1() {
                             style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.3)' }}
                         >
                             <img
-                                src={project1chalangeImage}
-                                alt="Pestorix Challenge Preview"
+                                src={projectChallengeImage}
+                                alt="Splitly Challenge Preview"
                                 className="absolute inset-0 w-full h-full object-cover object-center"
                             />
                         </div>
                     </motion.div>
-                    {/* Challenge Heading and Text (like Mission) */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20">
-                        {/* Left - Title */}
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6 }}
                             viewport={{ once: true }}
                         >
-                            <h2
-                                className="text-[20px] sm:text-[24px] md:text-[28px] font-light"
-                                style={{ fontFamily: 'serif' }}
-                            >
+                            <h2 className="text-[20px] sm:text-[24px] md:text-[28px] font-light" style={{ fontFamily: 'serif' }}>
                                 Challenge
                             </h2>
                         </motion.div>
-
-                        {/* Right - Description */}
                         <motion.div
                             initial={{ opacity: 0, x: 30 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -305,13 +269,13 @@ export default function Project1() {
                             viewport={{ once: true }}
                         >
                             <p className="text-gray-400 text-[13px] sm:text-[14px] md:text-[15px] leading-[1.6] font-light">
-                              A major challenge was collecting data from platforms without public APIs, which was addressed by implementing a controlled and reliable web-scraping approach while maintaining data accuracy and stability.
+                                The main challenge was designing an algorithm that could handle complex multi-party expense scenarios with unequal splits, multiple currencies, and partial payments while maintaining a simple user interface.
                             </p>
                         </motion.div>
                     </div>
                 </div>
 
-                {/* Trending Projects Section (like attached image) */}
+                {/* Trending Projects Section */}
                 <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-20 md:py-24">
                     <div className="flex items-center gap-4 md:gap-6 lg:gap-8 mb-10">
                         <h2 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-light tracking-tight" style={{ fontFamily: 'serif' }}>
@@ -327,20 +291,26 @@ export default function Project1() {
                         </button>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        {/* Project 2 */}
-                        <div className="bg-[#f6e97b]/30 rounded-[24px] overflow-hidden flex flex-col items-center p-6">
+                        {/* Project 1 - SkillBoard */}
+                        <div 
+                            className="bg-[#87CEEB]/30 rounded-[24px] overflow-hidden flex flex-col items-center p-6 cursor-pointer hover:scale-[1.02] transition-transform"
+                            onClick={() => navigate('/project/1')}
+                        >
                             <div className="w-full aspect-[16/9] rounded-[16px] overflow-hidden mb-6 border border-white/10">
-                                <img src={project2Image} alt="Didasko" className="w-full h-full object-cover" />
+                                <img src={project1Image} alt="SkillBoard" className="w-full h-full object-cover" />
                             </div>
                             <div className="w-full flex flex-col items-start">
-                                <span className="text-[20px] sm:text-[24px] md:text-[28px] font-light mb-1" style={{ fontFamily: 'serif' }}>AllFileChanger</span>
-                                <span className="text-gray-400 text-[13px] sm:text-[14px] md:text-[15px] font-light">2025</span>
+                                <span className="text-[20px] sm:text-[24px] md:text-[28px] font-light mb-1" style={{ fontFamily: 'serif' }}>SkillBoard</span>
+                                <span className="text-gray-400 text-[13px] sm:text-[14px] md:text-[15px] font-light">2024</span>
                             </div>
                         </div>
-                        {/* Project 3 */}
-                        <div className="bg-white/10 rounded-[24px] overflow-hidden flex flex-col items-center p-6">
+                        {/* Project 3 - SmartStock */}
+                        <div 
+                            className="bg-white/10 rounded-[24px] overflow-hidden flex flex-col items-center p-6 cursor-pointer hover:scale-[1.02] transition-transform"
+                            onClick={() => navigate('/project/3')}
+                        >
                             <div className="w-full aspect-[16/9] rounded-[16px] overflow-hidden mb-6 border border-white/10">
-                                <img src={project3Image} alt="Harmonix" className="w-full h-full object-cover" />
+                                <img src={project3Image} alt="SmartStock" className="w-full h-full object-cover" />
                             </div>
                             <div className="w-full flex flex-col items-start">
                                 <span className="text-[20px] sm:text-[24px] md:text-[28px] font-light mb-1" style={{ fontFamily: 'serif' }}>SmartStock</span>
@@ -350,7 +320,6 @@ export default function Project1() {
                     </div>
                 </div>
 
-                {/* Additional spacing at bottom */}
                 {/* Footer */}
                 <Footer />
             </div>

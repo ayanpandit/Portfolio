@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import StarryBackground from './hero_background';
 import project1Image from '../assets/project2.svg';
-import project1chalangeImage from '../assets/project2.svg';
+import project1chalangeImage from '../assets/project2_2.svg';
 import project2Image from '../assets/project1.svg';
 import project3Image from '../assets/project3.svg';
 import Footer from './footer';
 
-export default function Project1() {
+export default function Project2() {
     const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
