@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import footerImage from '../assets/footer.webp';
+import resume from '../assets/Ayan_s_Resume.pdf';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -161,14 +162,24 @@ const Footer = () => {
               Let's build your next big thing
             </h3>
             
-            <a 
-              href="mailto:aayanpandey8528@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white text-black px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-full text-sm sm:text-base font-medium hover:bg-gray-100 transition-colors inline-block"
-            >
-              Get in touch
-            </a>
+            <div className="flex gap-4 flex-wrap justify-center lg:justify-end">
+              <a 
+                href="mailto:aayanpandey8528@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white text-black px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-full text-sm sm:text-base font-medium hover:bg-gray-100 transition-colors inline-block"
+              >
+                Get in touch
+              </a>
+              
+              <a 
+                href={resume}
+                download="Ayan_s_Resume.pdf"
+                className="bg-transparent border-2 border-white text-white px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-full text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-colors inline-block"
+              >
+                Download Resume
+              </a>
+            </div>
           </div>
         </div>
       </div>
