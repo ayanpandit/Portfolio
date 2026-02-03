@@ -164,9 +164,9 @@ export default function AllProject() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8 md:py-12 lg:py-16">
           {/* New Centered Heading and Subtext */}
           <div className="mb-8 md:mb-10 lg:mb-12 flex flex-col items-center text-center">
-            <h1 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-light tracking-tight mb-3" style={{ fontFamily: 'serif' }}>
+            <h2 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-light tracking-tight mb-3" style={{ fontFamily: 'serif' }}>
               Project
-            </h1>
+            </h2>
             <p className="text-gray-300 text-[15px] sm:text-[17px] md:text-[19px] max-w-2xl font-light">
               A curated collection of my recent work, where creative thinking meets technical precision.
             </p>

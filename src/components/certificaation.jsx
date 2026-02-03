@@ -78,9 +78,9 @@ export default function Certifications() {
           viewport={{ once: false }}
         >
           <div className="flex items-center gap-4 md:gap-6 lg:gap-8">
-            <h1 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-light tracking-tight">
+            <h2 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-light tracking-tight">
               Certifications
-            </h1>
+            </h2>
             <div className="flex-1 h-[1px] bg-white"></div>
           </div>
         </motion.div>
