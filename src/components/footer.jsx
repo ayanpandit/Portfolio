@@ -62,7 +62,7 @@ const Footer = () => {
             </p>
             
             {/* Navigation */}
-            <nav className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-10 md:mt-12 mb-10 sm:mb-12 md:mb-16">
+            <nav className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-10 md:mt-12 mb-10 sm:mb-12 md:mb-16 items-center">
               <span
                 className="text-white hover:text-gray-400 transition-colors text-sm sm:text-base cursor-pointer"
                 onClick={() => handleNavigation('home')}
@@ -81,6 +81,13 @@ const Footer = () => {
               >
                 Contact
               </span>
+              <a 
+                href={resume}
+                download="Ayan_s_Resume.pdf"
+                className="bg-white text-black px-4 py-2 rounded-full text-sm sm:text-base font-medium hover:bg-gray-100 transition-colors inline-block"
+              >
+                Download Resume
+              </a>
             </nav>
 
             {/* Copyright */}
@@ -162,24 +169,14 @@ const Footer = () => {
               Let's build your next big thing
             </h3>
             
-            <div className="flex gap-4 flex-wrap justify-center lg:justify-end">
-              <a 
-                href="mailto:aayanpandey8528@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-black px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-full text-sm sm:text-base font-medium hover:bg-gray-100 transition-colors inline-block"
-              >
-                Get in touch
-              </a>
-              
-              <a 
-                href={resume}
-                download="Ayan_s_Resume.pdf"
-                className="bg-transparent border-2 border-white text-white px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-full text-sm sm:text-base font-medium hover:bg-white hover:text-black transition-colors inline-block"
-              >
-                Download Resume
-              </a>
-            </div>
+            <a 
+              href="mailto:aayanpandey8528@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-black px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-full text-sm sm:text-base font-medium hover:bg-gray-100 transition-colors inline-block"
+            >
+              Get in touch
+            </a>
           </div>
         </div>
       </div>
