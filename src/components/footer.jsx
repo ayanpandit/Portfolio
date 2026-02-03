@@ -62,7 +62,7 @@ const Footer = () => {
             </p>
             
             {/* Navigation */}
-            <nav className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-10 md:mt-12 mb-10 sm:mb-12 md:mb-16 items-center">
+            <nav className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-10 md:mt-12 mb-10 sm:mb-12 md:mb-16">
               <span
                 className="text-white hover:text-gray-400 transition-colors text-sm sm:text-base cursor-pointer"
                 onClick={() => handleNavigation('home')}
@@ -84,7 +84,7 @@ const Footer = () => {
               <a 
                 href={resume}
                 download="Ayan_s_Resume.pdf"
-                className="bg-white text-black px-4 py-2 rounded-full text-sm sm:text-base font-medium hover:bg-gray-100 transition-colors inline-block"
+                className="text-white hover:text-gray-400 transition-colors text-sm sm:text-base cursor-pointer"
               >
                 Download Resume
               </a>
