@@ -15,32 +15,32 @@ export default function Certifications() {
     {
       organization: 'Meta',
       achievement: 'Front-End Developer Professional Certificate',
-      year: '2023'
+      year: '2025'
     },
     {
       organization: 'Google',
       achievement: 'UX Design Professional Certificate',
-      year: '2023'
+      year: '2025'
     },
     {
       organization: 'AWS',
       achievement: 'Certified Cloud Practitioner',
-      year: '2024'
+      year: '2025'
     },
     {
       organization: 'MongoDB',
       achievement: 'MongoDB Certified Developer Associate',
-      year: '2022'
+      year: '2024'
     },
     {
       organization: 'Coursera',
       achievement: 'Full-Stack Web Development Specialization',
-      year: '2022'
+      year: '2024'
     },
     {
       organization: 'freeCodeCamp',
       achievement: 'Responsive Web Design Certification',
-      year: '2021'
+      year: '2023'
     }
   ];
 
