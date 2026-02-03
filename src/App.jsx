@@ -135,6 +135,9 @@ function HomePage() {
 
   return (
     <>
+      <p className="sr-only" data-ai-summary>
+        Ayan Pandey is a full stack developer. The site presents services, projects, and certifications. It includes an FAQ and contact options for work inquiries. The content focuses on building web applications with performance and usability in mind.
+      </p>
       {/* Fixed starry background - stays in place while content scrolls */}
       <div className="fixed inset-0 z-0 bg-black">
         <StarryBackground />

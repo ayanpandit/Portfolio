@@ -107,7 +107,7 @@ const FAQComponent = () => {
         {/* Header with line */}
         <div className="mb-8 md:mb-12 lg:mb-16">
           <div className="flex items-center gap-4 md:gap-6 lg:gap-8">
-            <motion.h1 
+            <motion.h2 
               className="text-white text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-serif tracking-tight"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -115,7 +115,7 @@ const FAQComponent = () => {
               viewport={{ once: false }}
             >
               FAQ
-            </motion.h1>
+            </motion.h2>
             <div className="flex-1 h-[1px] bg-white"></div>
           </div>
         </div>
