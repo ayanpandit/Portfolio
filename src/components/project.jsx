@@ -60,7 +60,7 @@ export default function Projects() {
         <div className="mb-8 md:mb-10 lg:mb-12">
           <div className="flex items-center gap-4 md:gap-6 lg:gap-8 mb-2">
             <h2 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-light tracking-tight whitespace-nowrap">
-              Projects by Ayan Pandey
+              Projects <span className="sr-only">by Ayan Pandey</span>
             </h2>
             <div className="flex-1 h-[1px] bg-white"></div>
             <button
