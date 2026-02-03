@@ -88,9 +88,9 @@ export default function Projects() {
         <div className="mb-12">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-8 flex-1">
-              <h1 className="text-[48px] font-light tracking-tight whitespace-nowrap">
+              <h2 className="text-[48px] font-light tracking-tight whitespace-nowrap">
                 Projects
-              </h1>
+              </h2>
               <div className="flex-1 h-[1px] bg-white"></div>
             </div>
           </div>

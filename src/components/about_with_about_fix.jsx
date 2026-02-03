@@ -34,9 +34,9 @@ export default function About() {
             {/* Header with line that extends across full width */}
             <div className="mb-12">
               <div className="flex items-center gap-8">
-                <h1 className="text-[48px] font-light tracking-tight playwrite-nz-basic">
+                <h2 className="text-[48px] font-light tracking-tight playwrite-nz-basic">
                   About
-                </h1>
+                </h2>
                 <div className="h-[1px] bg-white" style={{ width: 'calc(100% + 50vw)' }}></div>
               </div>
             </div>
