@@ -149,16 +149,15 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
       >
-        {/* SEO-optimized H1 with name prominence */}
         <h1 className="text-white text-center mb-4 w-full max-w-7xl">
           <span className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl mb-2 block" style={{ fontFamily: 'Anton, Chela One, Norican, Oswald, Pompiere, Roboto Condensed, Varela Round, sans-serif' }}>
-            I'm <strong>Ayan Pandey</strong>,
+            I'm Ayan,
           </span>
 
           {/* RotatingText Component */}
-          <span className="flex items-center justify-center w-full" aria-label="Full Stack Developer and Web Designer">
+          <span className="flex items-center justify-center w-full">
             <RotatingText
-              texts={['FULL STACK DEVELOPER.', 'WEB DESIGNER.']}
+              texts={['WEB DESIGNER.', 'WEB DEVELOPER.']}
               mainClassName="px-2 sm:px-2 md:px-3 text-2xl sm:text-3xl md:text-5xl lg:text-7xl tracking-wider overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
               staggerFrom="last"
               initial={{ y: "100%" }}
