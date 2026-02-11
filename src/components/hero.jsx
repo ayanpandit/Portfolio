@@ -1,11 +1,18 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import heroImage from '../assets/hero1.avif';
 import RotatingText from './hero_text_animation';
 
 const Hero = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [heroLoaded, setHeroLoaded] = useState(false);
+  const [heroSkeletonVisible, setHeroSkeletonVisible] = useState(true);
   const heroRef = useRef(null);
+
+  const handleHeroLoad = useCallback(() => {
+    setHeroLoaded(true);
+    setTimeout(() => setHeroSkeletonVisible(false), 550);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -128,18 +135,34 @@ const Hero = () => {
       <motion.div 
         className="absolute left-1/2 top-0 -translate-x-[48%] z-5 w-full h-full flex items-start justify-center pt-20 sm:pt-20 md:pt-16"
       >
-        <motion.img
-          src={heroImage}
-          alt="Ayan Pandey - Full Stack Developer"
-          className="w-auto h-[55%] sm:h-[60%] md:h-2/3 object-contain"
-          style={{
-            maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%)',
-            scale: imageScale,
-            willChange: 'transform'
-          }}
-          transition={{ type: "spring", stiffness: 50, damping: 20 }}
-        />
+        <div className="relative w-auto h-[55%] sm:h-[60%] md:h-2/3">
+          {/* Skeleton shimmer for hero portrait */}
+          {heroSkeletonVisible && (
+            <div
+              className="absolute inset-0 skeleton-shimmer rounded-2xl"
+              aria-hidden="true"
+              style={{
+                maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%)'
+              }}
+            />
+          )}
+          <motion.img
+            src={heroImage}
+            alt="Ayan Pandey - Full Stack Developer"
+            className="w-auto h-full object-contain"
+            onLoad={handleHeroLoad}
+            style={{
+              maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 40%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0) 100%)',
+              scale: imageScale,
+              willChange: 'transform',
+              opacity: heroLoaded ? 1 : 0,
+              transition: 'opacity 0.5s ease'
+            }}
+            transition={{ type: "spring", stiffness: 50, damping: 20 }}
+          />
+        </div>
       </motion.div>
 
       {/* Main Content - Positioned Lower */}

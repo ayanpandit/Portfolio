@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import SkeletonImage from './SkeletonImage';
 import projectImage from '../assets/project1.svg';
 import allfilechangerImage from '../assets/project2.svg';
 import smartstockImage from '../assets/project3.svg';
@@ -85,7 +86,7 @@ export default function Projects() {
                   boxShadow: '0 8px 32px rgba(0,0,0,0.3)'
                 }}
               >
-                <img
+                <SkeletonImage
                   src={project.image}
                   alt={`${project.title} Preview`}
                   className="absolute inset-0 w-full h-full object-cover object-top"

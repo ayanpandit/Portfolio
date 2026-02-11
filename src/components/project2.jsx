@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import StarryBackground from './hero_background';
+import SkeletonImage from './SkeletonImage';
 import project1Image from '../assets/project2.svg';
 import project1chalangeImage from '../assets/project2_2.svg';
 import project2Image from '../assets/project1.svg';
@@ -218,7 +219,7 @@ export default function Project2() {
                                 boxShadow: '0 8px 32px rgba(0,0,0,0.3)'
                             }}
                         >
-                            <img
+                            <SkeletonImage
                                 src={project1Image}
                                 alt="Pestorix Project Preview"
                                 className="absolute inset-0 w-full h-full object-cover object-top"
@@ -277,7 +278,7 @@ export default function Project2() {
                             className="block relative rounded-[16px] sm:rounded-[24px] md:rounded-[32px] overflow-hidden aspect-[16/9] w-full"
                             style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.3)' }}
                         >
-                            <img
+                            <SkeletonImage
                                 src={project1chalangeImage}
                                 alt="Pestorix Challenge Preview"
                                 className="absolute inset-0 w-full h-full object-cover object-center"
@@ -337,7 +338,7 @@ export default function Project2() {
                             onClick={() => navigate('/project/1')}
                         >
                             <div className="w-full aspect-[16/9] rounded-[16px] overflow-hidden mb-6 border border-white/10">
-                                <img src={project2Image} alt="SkillBoard" className="w-full h-full object-cover" />
+                                <SkeletonImage src={project2Image} alt="SkillBoard" className="w-full h-full object-cover" />
                             </div>
                             <div className="w-full flex flex-col items-start">
                                 <span className="text-[20px] sm:text-[24px] md:text-[28px] font-light mb-1" style={{ fontFamily: 'serif' }}>SkillBoard</span>
@@ -350,7 +351,7 @@ export default function Project2() {
                             onClick={() => navigate('/project/3')}
                         >
                             <div className="w-full aspect-[16/9] rounded-[16px] overflow-hidden mb-6 border border-white/10">
-                                <img src={project3Image} alt="SmartStock" className="w-full h-full object-cover" />
+                                <SkeletonImage src={project3Image} alt="SmartStock" className="w-full h-full object-cover" />
                             </div>
                             <div className="w-full flex flex-col items-start">
                                 <span className="text-[20px] sm:text-[24px] md:text-[28px] font-light mb-1" style={{ fontFamily: 'serif' }}>SmartStock</span>
