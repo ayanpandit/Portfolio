@@ -34,6 +34,7 @@ const Project2 = lazy(() => import("./components/project2"));
 const Project3 = lazy(() => import("./components/project3"));
 const Project4 = lazy(() => import("./components/project4"));
 const Project5 = lazy(() => import("./components/project5"));
+const Project6 = lazy(() => import("./components/project6"));
 const AllProject = lazy(() => import("./components/allproject"));
 
 // Minimal loading fallback - invisible to prevent layout shift
@@ -213,6 +214,7 @@ function App() {
           <Route path="/project/3" element={<Project3 />} />
           <Route path="/project/4" element={<Project4 />} />
           <Route path="/project/5" element={<Project5 />} />
+          <Route path="/project/6" element={<Project6 />} />
         </Routes>
       </Suspense>
     </>

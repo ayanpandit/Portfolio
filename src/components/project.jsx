@@ -6,6 +6,7 @@ import allfilechangerImage from '../assets/project2.svg';
 import smartstockImage from '../assets/project3.svg';
 import splitilyImage from '../assets/project4.svg';
 import appuiImage from '../assets/project5.svg';
+import yougoImage from '../assets/project6.svg';
 
 
 export default function Projects() {
@@ -41,6 +42,12 @@ export default function Projects() {
       year: '2025',
       image: appuiImage,
       route: '/project/5'
+    },
+    {
+      title: 'YouGO',
+      year: '2026',
+      image: yougoImage,
+      route: '/project/6'
     }
   ];
 
